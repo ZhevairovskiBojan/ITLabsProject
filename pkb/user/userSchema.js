@@ -19,11 +19,11 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Password is required'],
         minlength: [8, 'Password must be at least 8 characters'],
         // validate: [validator.isPassword, 'Please provide a strong password'],
-    // },
+    //  },
     //     admin: {
-    //     type: Boolean,
-    //     default: false,
-    }
+    //         type: Boolean,
+    //         default: false
+        }    
 });
 
 userSchema.pre('save', async function (next) {
