@@ -1,6 +1,7 @@
 const User = require('../../../pkb/user/userSchema');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+
 
 exports.signup = async (req, res) => {
     try {
@@ -8,8 +9,6 @@ exports.signup = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-        
-        
         });
       
         const token = jwt.sign(
@@ -19,13 +18,18 @@ exports.signup = async (req, res) => {
         expiresIn: process.env.JWT_EXPIRES,
         }
       ); 
+
+      res.cookie("jwt", token, {
+        expires: new Date(
+          Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+        ),
+        secure: false,
+        httpOnly: true,
+        });
       
       res.status(201).json({
         status: 'success',
         token,
-        // data: {
-        //     user: newUser,
-        // },
       })
     } catch (err) {
         res.status(500).send(err);

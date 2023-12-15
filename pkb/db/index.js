@@ -16,6 +16,6 @@ const DB = process.env.DATABASE.replace(
           });
           console.log("Successfully connected to database");
         } catch(err){
-            console.log(err);
+            console.log("Failed to connect to database");
         }
     };
