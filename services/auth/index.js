@@ -41,6 +41,3 @@ app.listen(process.env.PORTAUTH, (err) => {
   }
   console.log(`service started successfully on port ${process.env.PORTAUTH}`);
 });
-
-
-

@@ -1,29 +1,29 @@
 const express = require('express');
 const auth = require ('../../services/orders/orderHandler/authHandler');
 const db = require ('../../pkb/db/index');
-// const cors = require('cors');
+const cors = require('cors');
 // const jwt = require ('express-jwt');
 
 const app = express();
 
 db.init();
 app.use(express.json());
-// app.use(cors())
+app.use(cors())
 // app.use(jwt.expressjwt({
 //   algorithms: ['HS256'],
 //   secret: process.env.JWT_SECRET,
 //  })
 // );
 
-app.get('/api/v1/orders', auth.getAllOrders);
-app.get('/api/v1/oneOrder/:id', auth.getOneOrder);
-app.post('/api/v1/newOrder/:id', auth.createOrder);
+app.get('/api/v1/orders/allOrders', auth.getAllOrders);
+app.get('/api/v1/orders/oneOrder:id', auth.getOneOrder);
+app.post('/api/v1/orders/newOrder/:id', auth.createOrder);
+app.patch('/api/v1/update/updateOrder/:id', auth.updateOrder);
 
 
-
-app.listen(process.env.PORTAUTH, (err) => {
+app.listen(process.env.PORTORDERS, (err) => {
   if (err) {
-    console.log('Could not start service');
+      console.log('Could not start service');
   }
-  console.log(`service started successfully on port ${process.env.PORTAUTH}`);
+  console.log(`service started successfully on port ${process.env.PORTORDERS}`);
 });
