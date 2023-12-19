@@ -37,9 +37,9 @@ app.use('/api/v1/orders', ordersProxy);
 
 
 
-app.listen(process.env.PORTPROXY, (err) => {
+app.listen(9002, (err) => {
     if (err) {
-        return console.log(err)
+        return console.log('Error starting proxy server:', err);
     }
     console.log('Proxy service started on port 9002');
 });

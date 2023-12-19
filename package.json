@@ -19,7 +19,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./services/proxy/index.js & node ./services/auth/index.js & node ./services/category/index.js"
+    "start": "node ./services/proxy/index.js & node ./services/auth/index.js & node ./services/category/index.js & node ./services/items/index.js & node ./services/orders/index.js"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ const express = require('express');
 const auth = require('./handlers/authHandler');
 const db = require('../../pkb/db/index');
 const cookieParser = require("cookie-parser");
-// const cors = require('cors');
+const cors = require('cors');
 const jwt = require ('express-jwt');
 
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
 db.init();
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors())
+app.use(cors())
 app.use(jwt.expressjwt({
   algorithms: ['HS256'],
   secret: process.env.JWT_SECRET,
