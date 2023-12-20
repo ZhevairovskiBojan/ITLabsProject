@@ -1,0 +1,91 @@
+import React, { useEffect, useState } from "react";
+
+
+function Login () {
+    // kreirame inicijalna data
+    const initData = {
+        email: "",
+        password: "",
+};
+
+// zacuvuvame podatoci vo state za da proveruvame dali sme logirani
+const [data, setData] = useState(initData);
+
+// state za proveruvanje dali sme logirani
+const [loggedIn, setLoggedIn] = useState();
+
+// funkcija za sledenje na promenite vo formata
+const dataChange = (e) => {
+    setData({
+        ...data,
+        [e.target.name]: e.target.value,
+    });
+};
+
+// asinhrona funcija Login
+const login = async () => {
+    try{
+        let res = await fetch('/api/v1/auth/login', {
+            method:'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json',
+            },
+        });
+        let Obj = await res.json();
+        if(res.ok) {
+            setLoggedIn(true);
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('token', Obj.token);
+        }
+        alert(Obj.status);
+    }   catch (err) {
+        console.log(err);
+    }
+   };
+
+   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    setLoggedIn(isLoggedIn);
+  }, []);
+  
+
+   const logout = () => {
+    setLoggedIn(false);
+    localStorage.setItem('loggedIn', 'false');
+    localStorage.removeItem('token');
+   }
+
+    
+    return (
+        <div>
+          {loggedIn ? (
+            <div>
+              <button onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <div>
+              <h2>Login Form</h2>
+              <h2>label</h2>
+              <label>
+                <span>Email</span>
+                <br />
+                <input type="email" name="email" value={data.email} onChange={dataChange}></input>
+              </label>
+              <div>
+                <br />
+                <label>
+                  <span>Password</span>
+                  <br />
+                  <input type="password" name="password" value={data.password} onChange={dataChange}></input>
+                </label>
+                <br />
+                <button onClick={login}>Login</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )};
+      
+
+export default Login;
