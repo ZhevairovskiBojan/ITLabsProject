@@ -37,12 +37,14 @@ exports.signup = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+ 
     try {
         const { email, password } = req.body;
         if (!email || !password) {
             return res.status(400).send('Please provide email and password');
         }
         const user = await User.findOne({ email });
+        console.log(user);
         if(!user) {
             return res.status(401).send('invalid email or password!');
         }

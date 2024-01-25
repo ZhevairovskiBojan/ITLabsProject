@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 
 function Login () {
@@ -10,6 +11,8 @@ function Login () {
 
 // zacuvuvame podatoci vo state za da proveruvame dali sme logirani
 const [data, setData] = useState(initData);
+
+const navigate = useNavigate();
 
 // state za proveruvanje dali sme logirani
 const [loggedIn, setLoggedIn] = useState();
@@ -37,6 +40,7 @@ const login = async () => {
             setLoggedIn(true);
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('token', Obj.token);
+            navigate("/inventory")
         }
         alert(Obj.status);
     }   catch (err) {
@@ -64,7 +68,8 @@ const login = async () => {
               <button onClick={logout}>Logout</button>
             </div>
           ) : (
-            <div>
+            <div className="login-modal">
+            <div className="card">
               <h2>Login Form</h2>
               <h2>label</h2>
               <label>
@@ -82,6 +87,7 @@ const login = async () => {
                 <br />
                 <button onClick={login}>Login</button>
               </div>
+            </div>
             </div>
           )}
         </div>

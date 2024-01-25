@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import "./Register.modal.css";
 
 function Register() {
   const initData = {
@@ -18,6 +20,8 @@ function Register() {
 
   const register = async () => {
     try {
+      console.log("Registering user:", data);
+
       let res = await fetch('/api/v1/auth/create-account', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -25,52 +29,60 @@ function Register() {
           'Content-Type': 'application/json',
         },
       });
+
+      console.log("Response:", res);
+
       if (res.ok) {
         alert('User is created');
+      } else {
+        const errorData = await res.json();
+        console.log("Error:", errorData);
       }
     } catch (err) {
-      console.log(err);
+      console.error("Error during registration:", err);
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <label>
-        <span>Email</span>
+    <div className="register-modal">
+      <div className="card">
+        <h2>Register</h2>
+        <label>
+          <span>Email</span>
+          <br />
+          <input
+            type="email"
+            name="email"
+            value={data.email}
+            onChange={dataChange}
+          ></input>
+        </label>
         <br />
-        <input
-          type="email"
-          name="email"
-          value={data.email}
-          onChange={dataChange}
-        ></input>
-      </label>
-      <br />
-      <label>
-        <span>Password</span>
+        <label>
+          <span>Password</span>
+          <br />
+          <input
+            type="password"
+            name="password"
+            value={data.password}
+            onChange={dataChange}
+          ></input>
+        </label>
         <br />
-        <input
-          type="password"
-          name="password"
-          value={data.password}
-          onChange={dataChange}
-        ></input>
-      </label>
-      <br />
-      <label>
-        <span>Full Name</span>
+        <label>
+          <span>Full Name</span>
+          <br />
+          <input
+            type="text"
+            name="name"
+            value={data.name}
+            onChange={dataChange}
+          ></input>
+          <br />
+        </label>
         <br />
-        <input
-          type="text"
-          name="name"
-          value={data.name}
-          onChange={dataChange}
-        ></input>
-        <br />
-      </label>
-      <br />
-      <button onClick={register}>Register</button>
+        <button onClick={register}>Register</button>
+      </div>
     </div>
   );
 }
