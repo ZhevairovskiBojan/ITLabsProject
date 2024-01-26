@@ -1,13 +1,13 @@
-const orders = require('../../../pkb/orders/orderSchema');
+const supplier = require('../../pkb/suppliers/suppliersSchema');
 
 
-exports.getAllOrders = async (req, res) => {
+exports.getAll = async (req, res) => {
     try {
-        const allOrders = await orders.find();
+        const suppliers = await supplier.find();
         res.status(200).json({
             status: 'success',
             data: {
-                allOrders,
+                suppliers,
             }
         });
     }   catch (err){
@@ -18,13 +18,13 @@ exports.getAllOrders = async (req, res) => {
     };
 };
 
-exports.getOneOrder = async (req,res) => {
+exports.getOne = async (req,res) => {
     try {
-        const oneOrder = await items.findById(req.params.id);
+        const oneSupplier = await supplier.findById(req.params.id);
         res.status(200).json ({
             status: 'success',
             data: {
-                oneOrder,
+                oneSupplier,
             }
         })
 
@@ -36,13 +36,13 @@ exports.getOneOrder = async (req,res) => {
     }
 };
 
-exports.createOrder = async (req, res) => {
+exports.createSupplier = async (req, res) => {
     try {
-        const newOrder = await items.create(req.body); 
+        const newSupplier = await supplier.create(req.body); 
         res.status(201).json({
             status: 'success',
             data: {
-                newOrder,
+                newSupplier,
             }
         });
     } catch(err) {
@@ -53,9 +53,9 @@ exports.createOrder = async (req, res) => {
     }
 };
 
-exports.updateOrder = async (req, res) => {
+exports.update = async (req, res) => {
     try {
-        const updateOrders = await orders.findByIdAndUpdate(req.params.id, req.body, {
+        const updateSupplier = await supplier.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
         });
@@ -63,7 +63,7 @@ exports.updateOrder = async (req, res) => {
         res.status(200).json({
             status: 'success',
             data: {
-                updateOrders,
+                updateSupplier,
             },
         });
 
@@ -76,3 +76,18 @@ exports.updateOrder = async (req, res) => {
     }
 };
 
+exports.delete = async (req, res) => {
+    try {
+        await supplier.findByIdAndDelete(req.params.id);
+        res.status(204).json({
+            status: 'succsess',
+            data: null,
+        });
+
+    }   catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};

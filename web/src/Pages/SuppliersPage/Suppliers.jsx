@@ -11,18 +11,18 @@ export default function Suppliers() {
   
 
   const getSuppliers = () => {
-    axios.get('/api/v1/category/categories')
+    axios.get('/api/v1/category/categories') //smeni ja rutata ova bese primer
     .then(response => {
-      // handle success
+      
       console.log(response.data);
       setSuppliers(response.data.data.categories)
     })
     .catch(error => {
-      // handle error
+     
       console.log(error);
     })
     .finally( () => {
-      // always executed
+      
     });
   }
   return (

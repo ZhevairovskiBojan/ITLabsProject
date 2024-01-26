@@ -10,17 +10,16 @@ export default function Reports() {
 
   getReports = () => {
     axios.get('/user?ID=12345')
-  .then(function (response) {
-    // handle success
+  .then(response => {
     console.log(response);
     setReports(response)
   })
-  .catch(function (error) {
-    // handle error
+  .catch(error => {
+   
     console.log(error);
   })
-  .finally(function () {
-    // always executed
+  .finally(() => {
+    
   });
   }
   return (
