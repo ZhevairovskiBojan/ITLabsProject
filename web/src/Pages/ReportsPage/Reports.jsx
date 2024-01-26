@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+
 
 export default function Reports() {
   const [reports, setReports] = useState([]);
@@ -8,7 +10,7 @@ export default function Reports() {
   }, [])
   
 
-  getReports = () => {
+  const getReports = () => {
     axios.get('/user?ID=12345')
   .then(response => {
     console.log(response);

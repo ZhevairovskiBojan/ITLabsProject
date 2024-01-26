@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import styles from "./Login.module.css";
 
 
 function Login () {
@@ -40,7 +41,7 @@ const login = async () => {
             setLoggedIn(true);
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('token', Obj.token);
-            navigate("/inventory")
+            navigate("/inventory") // dashboard
         }
         alert(Obj.status);
     }   catch (err) {
@@ -61,37 +62,36 @@ const login = async () => {
    }
 
     
-    return (
-        <div>
-          {loggedIn ? (
+   return (
+    <div>
+        {loggedIn ? (
             <div>
-              <button onClick={logout}>Logout</button>
+                <button className={styles.logout} onClick={logout}>Logout</button>
             </div>
-          ) : (
-            <div className="login-modal">
-            <div className="card">
-              <h2>Login Form</h2>
-              <h2>label</h2>
-              <label>
-                <span>Email</span>
-                <br />
-                <input type="email" name="email" value={data.email} onChange={dataChange}></input>
-              </label>
-              <div>
-                <br />
-                <label>
-                  <span>Password</span>
-                  <br />
-                  <input type="password" name="password" value={data.password} onChange={dataChange}></input>
-                </label>
-                <br />
-                <button onClick={login}>Login</button>
-              </div>
+        ) : (
+            <div className={styles.loginModule}>
+                <div className={styles.card}>
+                    <h2>Login Form</h2>
+                    <label>
+                        <span>Email</span>
+                        <br />
+                        <input type="email" name="email" value={data.email} onChange={dataChange}></input>
+                    </label>
+                    <div>
+                        <br />
+                        <label>
+                            <span>Password</span>
+                            <br />
+                            <input type="password" name="password" value={data.password} onChange={dataChange}></input>
+                        </label>
+                        <br />
+                        <button onClick={login}>Login</button>
+                    </div>
+                </div>
             </div>
-            </div>
-          )}
-        </div>
-      )};
-      
+        )}
+    </div>
+);
+}
 
 export default Login;

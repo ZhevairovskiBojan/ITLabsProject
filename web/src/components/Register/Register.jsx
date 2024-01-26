@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import "./Register.modal.css";
+import styles from "./Register.module.css";
 
 function Register() {
   const initData = {
@@ -44,8 +43,8 @@ function Register() {
   };
 
   return (
-    <div className="register-modal">
-      <div className="card">
+    <div className={styles.registerModule}> 
+      <div className={styles.card}>
         <h2>Register</h2>
         <label>
           <span>Email</span>
@@ -55,6 +54,7 @@ function Register() {
             name="email"
             value={data.email}
             onChange={dataChange}
+            className={styles.input} 
           ></input>
         </label>
         <br />
@@ -66,6 +66,7 @@ function Register() {
             name="password"
             value={data.password}
             onChange={dataChange}
+            className={styles.input}
           ></input>
         </label>
         <br />
@@ -77,11 +78,14 @@ function Register() {
             name="name"
             value={data.name}
             onChange={dataChange}
+            className={styles.input} 
           ></input>
           <br />
         </label>
         <br />
-        <button onClick={register}>Register</button>
+        <button onClick={register} className={styles.button}> 
+          Register
+        </button>
       </div>
     </div>
   );

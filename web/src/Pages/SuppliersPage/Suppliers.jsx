@@ -11,7 +11,7 @@ export default function Suppliers() {
   
 
   const getSuppliers = () => {
-    axios.get('/api/v1/category/categories') //smeni ja rutata ova bese primer
+    axios.get('/api/v1/supplier/suppliers') // error 404 ne ja dava rutata
     .then(response => {
       
       console.log(response.data);
