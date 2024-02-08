@@ -41,7 +41,7 @@ const login = async () => {
             setLoggedIn(true);
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('token', Obj.token);
-            navigate("/inventory") // dashboard
+            navigate("/dashboard")
         }
         alert(Obj.status);
     }   catch (err) {

@@ -26,7 +26,7 @@ export default function Reports() {
   }
   return (
     <div>
-      <h1>REports</h1>
+      <h1>Reports</h1>
       {reports.map(r => <div>{r.name}</div>)}
     </div>
   )
