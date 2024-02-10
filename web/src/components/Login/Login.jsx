@@ -77,10 +77,10 @@ const login = async () => {
                         <br />
                         <input type="email" name="email" value={data.email} onChange={dataChange}></input>
                     </label>
-                    <div>
+                <div>
                         <br />
-                        <label>
-                            <span>Password</span>
+                    <label>
+                        <span>Password</span>
                             <br />
                             <input type="password" name="password" value={data.password} onChange={dataChange}></input>
                         </label>

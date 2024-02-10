@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./dashboardPage.module.css"
-import RecentActivity from "../../components/RecentActivity/RecentActivity";
 import RecentOrders from "../../components/RecentOrder/RecentOrders";
-
 import Navigation from "../../components/Navigation/navigation";
 import Header from "../../components/Header/header";
-import Inventory from "../InventoryPage/Inventory";
+import InventorySummary from "../../components/InventorySummary/inventorySummary";
+import RecentActivity from "../../components/RecentActivity/RecentActivity";
+
 
 
 
@@ -20,11 +20,15 @@ function Dashboard () {
             <main>
                 <header>
                     <Header title="Dashboard" className={styles["user-section"]}/>
+                    { <Header />}
                 </header>
+                <div className={styles["content-wrapper"]}>
                 <div className={styles["container"]}>
-                    {< Inventory />}
-                    {< RecentActivity />}
+                    {< InventorySummary />}
+                    {< RecentActivity /> }
                     {< RecentOrders />}
+                </div>
+                    
                 </div>
             </main>
         </section>

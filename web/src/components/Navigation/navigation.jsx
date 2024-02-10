@@ -11,7 +11,9 @@ function Navigation() {
   return (
     <div className={styles.navigation}>
       <div className={styles["app-logo"]}>
+        <NavLink to="/dashboard">
         <img src={logo} alt="logo" />
+        </NavLink>
     </div>
       <div className={styles["nav-wrapper"]}>
         <NavLink to="/dashboard" className={styles["nav-button"]}>

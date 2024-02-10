@@ -55,3 +55,11 @@ button {
 button:hover {
   background-color: #319b35;
 }
+
+.logout {
+  background-color: #53A856;
+  width: 200px;
+  height: 50px;
+}
+
+
