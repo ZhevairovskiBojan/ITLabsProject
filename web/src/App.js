@@ -8,20 +8,21 @@ import Suppliers from './Pages/SuppliersPage/Suppliers';
 import Layout from './components/Layout/Layout';
 
 
+
 function App() {
   
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          {/* <Route path='/' element={<Default />} /> */}
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Layout />} />
-          <Route path='/dashboardPage' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/inventory' element={<Inventory />} />
           <Route path='/reports' element={<Reports />} />
           <Route path='/suppliers' element={<Suppliers />} />
-          
         </Routes>
       </BrowserRouter>
     </div>

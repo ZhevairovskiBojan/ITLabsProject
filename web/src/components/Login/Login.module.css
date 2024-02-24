@@ -1,15 +1,15 @@
-
 .loginModule {
-  font-family: 'Arial', sans-serif;
-  background: #b9c0b9;
+  font-family: "Arial", sans-serif;
+  background: #b5d6b5;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .card {
@@ -18,10 +18,11 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
+  text-align: center;
+  
 }
 
 h2 {
-  text-align: center;
   color: #000000;
 }
 
@@ -42,9 +43,8 @@ input {
 }
 
 button {
-  width: 100%;
   padding: 10px;
-  background-color: #53A856;
+  background-color: #53a856;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -56,10 +56,11 @@ button:hover {
   background-color: #319b35;
 }
 
-.logout {
-  background-color: #53A856;
-  width: 200px;
-  height: 50px;
+.app-logo {
+  width: 345px;
+  height: 190px;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left:50px;
 }
-
-

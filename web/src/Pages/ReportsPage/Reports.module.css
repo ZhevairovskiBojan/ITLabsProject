@@ -1,0 +1,10 @@
+.rep-box{
+    display: flex;
+    border: 1px solid #000000;
+}
+
+.sub-heading-wrap{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}

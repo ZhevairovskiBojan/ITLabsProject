@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose');
 
 const categorySchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
     },
     icon: {
@@ -13,7 +13,7 @@ const categorySchema = new mongoose.Schema({
     },
     categories: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
+        ref: 'users',
     }]
 });
 

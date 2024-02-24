@@ -1,11 +1,25 @@
-import React from 'react'
+import React from "react"
+import styles from "./inventory.module.css";
+import Navigation from "../../components/Navigation/navigation";
 
-function Inventory() {
-  return (
-    <div>
-      <h1>Inventory</h1>
-    </div>
-  )
-}
 
-export default Inventory
+
+
+export default function Inventory () {
+
+return (
+  <section className={styles["main-section"]}>
+      <aside>
+          <Navigation/>
+      </aside>
+      <main>
+          <header>
+              {/* <Header title="Inventory" className={styles["user-section"]}/>
+              { <Header />} */}
+          </header>
+       
+          </main>
+          </section>
+          
+)
+        }

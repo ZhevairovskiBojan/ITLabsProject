@@ -76,11 +76,11 @@ exports.updateItems = async (req, res) => {
     }
 };
 
-exports.delete = async (req, res) => {
+exports.deleteItems = async (req, res) => {
     try {
         await items.findByIdAndDelete(req.params.id);
         res.status(204).json({
-            status: 'succsess',
+            status: 'success',
             data: null,
         });
 

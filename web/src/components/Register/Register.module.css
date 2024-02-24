@@ -1,6 +1,6 @@
 .registerModule {
   font-family: 'Arial', sans-serif;
-  background: #b9c0b9;
+  background: #b5d6b5;
   position: fixed;
   top: 0;
   left: 0;
@@ -60,4 +60,13 @@ button {
 button:hover {
   background-color: #267d2c;
  
+}
+
+.app-logo {
+  width: 345px;
+  height: 190px;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left:50px;
 }

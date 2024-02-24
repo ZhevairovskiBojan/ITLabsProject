@@ -5,12 +5,20 @@ const suppliersSchema = new mongoose.Schema({
     name: {
         type: String,
         
-        
     },
-    date: {
-        type: Date,
-        default: Date.now
+    adress: {
+        type: String,
     },
+
+    phonenumber: {
+        type: String,
+    },
+
+    email: {
+        type: String,
+
+    },
+
     suppliers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'suppliers',

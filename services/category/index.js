@@ -15,11 +15,11 @@ app.use(cors())
 // })
 //  );
 
-app.get('/api/v1/category/categories', auth.getAll);
-app.get('/api/v1/category/oneCategory/:id', auth.getOne);
+app.get('/api/v1/category/categories', auth.getAllCategory);
+app.get('/api/v1/category/oneCategory/:id', auth.getOneCategory);
 app.post('/api/v1/category/newCategory/:id', auth.createCategory);
-app.patch('/api/v1/category/updateCategory/:id', auth.update);
-app.delete('/api/v1/category/categoryDelete/:id', auth.delete);
+app.patch('/api/v1/category/updateCategory/:id', auth.updateCategory);
+app.delete('/api/v1/category/categoryDelete/:id', auth.deleteCategory);
 
 
 app.listen(process.env.PORTCATEGORY, (err) => {

@@ -7,7 +7,7 @@ import signout_icon from "../../imgs/signout_icon.png";
 import { NavLink } from "react-router-dom";
 
 
-function Navigation() {
+export default function Navigation() {
   return (
     <div className={styles.navigation}>
       <div className={styles["app-logo"]}>
@@ -33,13 +33,13 @@ function Navigation() {
         </NavLink>
       </div>
       <div className={styles["signout-btn"]}>
-        <NavLink to="/signout" className={styles["nav-button"]}>
+        <NavLink to="/login" className={styles["nav-button"]}>
           <img src={signout_icon} className={styles["img-btn"]} alt="signout_icon" />
           <span className={styles["txt-btn"]}>SignOut</span>
         </NavLink>
       </div>
     </div>
   );
-}
+};
 
-export default Navigation;
+

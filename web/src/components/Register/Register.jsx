@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Register.module.css";
+import logo from "../../imgs/logo.png";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const initData = {
@@ -9,6 +12,7 @@ function Register() {
   };
 
   const [data, setData] = useState(initData);
+  const navigate = useNavigate();
 
   const dataChange = (e) => {
     setData({
@@ -18,6 +22,20 @@ function Register() {
   };
 
   const register = async () => {
+    if (!data.email || !data.password || !data.name) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      alert("Please provide a valid email or password.");
+      return;
+    }
+
+    if (data.password.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return;
+    }
     try {
       console.log("Registering user:", data);
 
@@ -33,6 +51,7 @@ function Register() {
 
       if (res.ok) {
         alert('User is created');
+        navigate("/login");
       } else {
         const errorData = await res.json();
         console.log("Error:", errorData);
@@ -86,6 +105,11 @@ function Register() {
         <button onClick={register} className={styles.button}> 
           Register
         </button>
+        <NavLink to={"/login"}>
+        <div className={styles["app-logo"]}>
+          <img src={logo} alt="logo" />
+        </div>
+      </NavLink>
       </div>
     </div>
   );

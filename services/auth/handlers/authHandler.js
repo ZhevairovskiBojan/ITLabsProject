@@ -62,7 +62,7 @@ exports.login = async (req, res) => {
             }
           ); 
 
-          res.status(201).json({ status: 'success', token });
+          res.status(201).json({ status: 'success', token, username: user.name });
 
     } catch (err) {
         res.status(500).send(err);

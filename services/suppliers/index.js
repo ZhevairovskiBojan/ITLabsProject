@@ -15,17 +15,17 @@ app.use(cors())
 // })
 //  );
 
-app.get('/api/v1/supplier/suppliers', auth.getAll);
-app.get('/api/v1/supplier/oneSupplier/:id', auth.getOne);
+app.get('/api/v1/supplier/suppliers', auth.getAllSuppliers);
+app.get('/api/v1/supplier/oneSupplier/:id', auth.getOneSupplier);
 app.post('/api/v1/supplier/newSupplier', auth.createSupplier);
-app.patch('/api/v1/supplier/updateSupplier/:id', auth.update);
-app.delete('/api/v1/supplier/supplierDelete/:id', auth.delete);
+app.patch('/api/v1/supplier/updateSupplier/:id', auth.updateSupplier);
+app.delete('/api/v1/supplier/deleteSupplier/:id', auth.deleteSupplier);
 
 
 app.listen(process.env.PORTSUPPLIERS, (err) => {
   if (err) {
       console.log('Could not start service');
   }
-  console.log(`service started successfully on port${process.env.PORTSUPPLIERS}`);
+  console.log(`Service started successfully on port ${process.env.PORTSUPPLIERS}`);
 });
 

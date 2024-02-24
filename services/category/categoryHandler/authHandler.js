@@ -1,7 +1,6 @@
 const category = require('../../../pkb/category/categorySchema');
 
-
-exports.getAll = async (req, res) => {
+exports.getAllCategory = async (req, res) => {
     try {
         const categories = await category.find();
         res.status(200).json({
@@ -10,55 +9,67 @@ exports.getAll = async (req, res) => {
                 categories,
             }
         });
-    }   catch (err){
-        res.status(404).json({
-            status: "fail",
-            message: err,
-        })
-    };
+    } catch (err) {
+        res.status(500).json({
+            status: 'fail',
+            message: 'Failed to fetch categories',
+        });
+    }
 };
 
-exports.getOne = async (req,res) => {
+exports.getOneCategory = async (req, res) => {
     try {
         const oneCategory = await category.findById(req.params.id);
-        res.status(200).json ({
+        if (!oneCategory) {
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Category not found',
+            });
+        }
+        res.status(200).json({
             status: 'success',
             data: {
                 oneCategory,
             }
-        })
-
-    }   catch (err){
-        res.status(404).json({
+        });
+    } catch (err) {
+        res.status(500).json({
             status: 'fail',
-            message: err,
+            message: 'Failed to fetch category',
         });
     }
 };
 
 exports.createCategory = async (req, res) => {
     try {
-        const newCategory = await category.create(req.body); 
+        const newCategory = await category.create(req.body);
         res.status(201).json({
             status: 'success',
             data: {
                 newCategory,
             }
         });
-    } catch(err) {
-        res.status(404).json({
+    } catch (err) {
+        res.status(400).json({
             status: 'fail',
-            message: err,
+            message: 'Invalid data provided',
         });
     }
 };
 
-exports.update = async (req, res) => {
+exports.updateCategory = async (req, res) => {
     try {
         const updateCategory = await category.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
         });
+
+        if (!updateCategory) {
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Category not found',
+            });
+        }
 
         res.status(200).json({
             status: 'success',
@@ -67,27 +78,31 @@ exports.update = async (req, res) => {
             },
         });
 
-    }   catch (err) {
-        res.status(404).json({
+    } catch (err) {
+        res.status(400).json({
             status: 'fail',
-            message: err,
+            message: 'Invalid data provided',
         });
-
     }
 };
 
-exports.delete = async (req, res) => {
+exports.deleteCategory = async (req, res) => {
     try {
-        await category.findByIdAndDelete(req.params.id);
+        const deletedCategory = await category.findByIdAndDelete(req.params.id);
+        if (!deletedCategory) {
+            return res.status(404).json({
+                status: 'fail',
+                message: 'Category not found',
+            });
+        }
         res.status(204).json({
-            status: 'succsess',
+            status: 'success',
             data: null,
         });
-
-    }   catch (err) {
-        res.status(404).json({
+    } catch (err) {
+        res.status(500).json({
             status: 'fail',
-            message: err,
+            message: 'Failed to delete category',
         });
     }
 };

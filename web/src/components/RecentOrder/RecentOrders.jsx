@@ -32,10 +32,16 @@ function RecentOrders() {
             <div className={styles["rec-ord-card"]}>
                <img className={styles["rec-ord-img"]} src={recentItem4Img} alt="office pens"></img>
                 <p>Office Pens</p>
-                <p>64 Unit  | € 17.00</p>
+                <p>64 Unit  | € 179.00</p>
             </div>
             <div className={styles["right-arrow"]}>
             <img src={expandArrowImg} alt="right arrow"></img>
+            </div>
+            <div className={styles["dot-wrap"]}>
+                <div className={styles["round-dot"]}></div>
+                <div className={styles["border-dot"]}></div>
+                <div className={styles["border-dot"]}></div>
+
             </div>
         </div>
         </div>

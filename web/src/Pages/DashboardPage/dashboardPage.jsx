@@ -2,16 +2,13 @@ import React from "react";
 import styles from "./dashboardPage.module.css"
 import RecentOrders from "../../components/RecentOrder/RecentOrders";
 import Navigation from "../../components/Navigation/navigation";
-import Header from "../../components/Header/header";
 import InventorySummary from "../../components/InventorySummary/inventorySummary";
 import RecentActivity from "../../components/RecentActivity/RecentActivity";
+import HeaderDashBoard from "../../components/HeaderDashBoard/headerDashBoard";
 
-
-
-
-function Dashboard () {
+const Dashboard = () => {
     
-
+    
     return (
         <section className={styles["main-section"]}>
             <aside>
@@ -19,8 +16,8 @@ function Dashboard () {
             </aside>
             <main>
                 <header>
-                    <Header title="Dashboard" className={styles["user-section"]}/>
-                    { <Header />}
+                    <HeaderDashBoard title="Dashboard" className={styles["user-section"]}/>
+                    { <HeaderDashBoard />}
                 </header>
                 <div className={styles["content-wrapper"]}>
                 <div className={styles["container"]}>
@@ -35,4 +32,4 @@ function Dashboard () {
     );
 }
 
-export default Dashboard
+export default Dashboard;

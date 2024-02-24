@@ -1,6 +1,7 @@
 const orders = require('../../../pkb/orders/orderSchema');
 
 
+
 exports.getAllOrders = async (req, res) => {
     try {
         const allOrders = await orders.find();
@@ -10,25 +11,25 @@ exports.getAllOrders = async (req, res) => {
                 allOrders,
             }
         });
-    }   catch (err){
+    } catch (err) {
         res.status(404).json({
             status: "fail",
             message: err,
-        })
-    };
+        });
+    }
 };
 
-exports.getOneOrder = async (req,res) => {
+exports.getOneOrder = async (req, res) => {
     try {
-        const oneOrder = await items.findById(req.params.id);
-        res.status(200).json ({
+        const oneOrder = await orders.findById(req.params.id);
+        res.status(200).json({
             status: 'success',
             data: {
                 oneOrder,
             }
-        })
+        });
 
-    }   catch (err){
+    } catch (err) {
         res.status(404).json({
             status: 'fail',
             message: err,
@@ -38,14 +39,14 @@ exports.getOneOrder = async (req,res) => {
 
 exports.createOrder = async (req, res) => {
     try {
-        const newOrder = await items.create(req.body); 
+        const newOrder = await orders.create(req.body);
         res.status(201).json({
             status: 'success',
             data: {
                 newOrder,
             }
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).json({
             status: 'fail',
             message: err,
@@ -55,7 +56,7 @@ exports.createOrder = async (req, res) => {
 
 exports.updateOrder = async (req, res) => {
     try {
-        const updateOrders = await orders.findByIdAndUpdate(req.params.id, req.body, {
+        const updatedOrder = await orders.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
         });
@@ -63,11 +64,11 @@ exports.updateOrder = async (req, res) => {
         res.status(200).json({
             status: 'success',
             data: {
-                updateOrders,
+                updatedOrder,
             },
         });
 
-    }   catch (err) {
+    } catch (err) {
         res.status(404).json({
             status: 'fail',
             message: err,
@@ -75,4 +76,3 @@ exports.updateOrder = async (req, res) => {
 
     }
 };
-
