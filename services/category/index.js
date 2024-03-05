@@ -17,7 +17,7 @@ app.use(cors())
 
 app.get('/api/v1/category/categories', auth.getAllCategory);
 app.get('/api/v1/category/oneCategory/:id', auth.getOneCategory);
-app.post('/api/v1/category/newCategory/:id', auth.createCategory);
+app.post('/api/v1/category/newCategory', auth.createCategory);
 app.patch('/api/v1/category/updateCategory/:id', auth.updateCategory);
 app.delete('/api/v1/category/categoryDelete/:id', auth.deleteCategory);
 

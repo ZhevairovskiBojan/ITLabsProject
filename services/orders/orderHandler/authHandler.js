@@ -37,6 +37,16 @@ exports.getOneOrder = async (req, res) => {
     }
 };
 
+exports.getTotalOrderPrice = async (req, res) => {
+    try {
+      const price = (await orders.getTotalOrderPrice(req.auth.id)) || 0;
+      return res.status(200).send({ totalPrice: price });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send("Interval server error");
+    }
+  };
+
 exports.createOrder = async (req, res) => {
     try {
         const newOrder = await orders.create(req.body);

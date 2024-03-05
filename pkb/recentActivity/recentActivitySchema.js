@@ -1,16 +1,37 @@
-const mongoose = require ('mongoose');
+const mongoose = require("mongoose");
 
-const recentActivitySchema = new mongoose.Schema(
-{
-    username:String,
+const activitySchema = new mongoose.Schema(
+  {
+    username: String,
     action: String,
-},
-
-{
+    entityName: String,
+    entityType: String,
+    category: String,
+  },
+  {
     timestamps: true,
-}
-
+  }
 );
 
-const Activity = mongoose.model("activities", recentActivitySchema, "activities");
-module.exports = Activity;
+const ActivityAction = {
+  Created: "created",
+  Edited: "edited",
+  Moved: "moved",
+  Deleted: "deleted",
+  Ordered: "ordered",
+};
+
+const ActivityEntityType = {
+  Item: "item",
+  Category: "category",
+  Supplier: "supplier",
+  Order: "order for item",
+};
+
+const Activity = mongoose.model("activities", activitySchema, "activities");
+
+module.exports = {
+  Activity,
+  ActivityAction,
+  ActivityEntityType,
+};

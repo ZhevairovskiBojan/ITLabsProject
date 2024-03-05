@@ -1,33 +1,43 @@
-import styles from "./recentActivity.module.css";
+import React, { useEffect, useState } from "react";
 
+const RecentActivity = () => {
+  const [activities, setActivities] = useState([]);
 
-function RecentActivity() {
-  return (
-    <div>
-        <h1>Recent Activity</h1>
-        <div>
-            <div className={styles["activity-box"]}>
-                <p>Admin has created item Office Pens in Office Supply  (Office Category)</p>
+  useEffect(() => {
+    const fetchActivity = async () => {
+      try {
+        const res = await fetch("/api/v1/recent-activity", {
+          method: "GET",
+        });
+        const data = await res.json();
+        setActivities(data);
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-            </div>
+    fetchActivity();
+    const intervalId = setInterval(fetchActivity, 1000000);
 
-            <div className={styles["activity-box"]}>
-                <p>Admin has created item A4 Paper in Office Supply  (Office Category)</p>
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
-            </div>
+  return activities.map((activity, index) => {
+    return (
+      <>
+        <p key={index} className="activity">
+          <b>{activity.username}</b> has {activity.action} {activity.entityType}{" "}
+          <b>{activity.entityName}</b> {activity.category ? "in" : ""}{" "}
+          <b>
+            {activity.category} {activity.category ? "(Category)" : ""}
+          </b>
+        </p>
+      </>
+    );
+  });
+};
 
-            <div className={styles["activity-box"]}>
-                <p>Admin has deleted item Espresso in Kitchen Supply  (Kitchen Category)</p>
-
-            </div>
-
-            <div className={styles["activity-box"]}>
-                <p>Admin has moved item Mouse in Office Supply (Office Category)</p>
-
-            </div>
-        </div>
-    </div>
-  )
-}
-
-export default RecentActivity
+export default RecentActivity;

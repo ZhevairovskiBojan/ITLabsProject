@@ -1,11 +1,19 @@
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from './Pages/DashboardPage/dashboardPage';
-import Inventory from './Pages/InventoryPage/Inventory';
-import Reports from './Pages/ReportsPage/Reports';
-import Suppliers from './Pages/SuppliersPage/Suppliers';
+import CategoryOverview from "../src/components/Cards/CategoryOverview/CategoryOverview"
+import ItemOverview from "../src/components/Cards/ItemOverview/ItemOverview";
+import Activityhistory from "../src/Pages/Activityhistory"
+import InventorySummary from "./components/InventorySummary/inventorySummary"
+
+
 import Layout from './components/Layout/Layout';
+import Dashboard from './Pages/Dashboard';
+import Inventory from './Pages/Inventory';
+import Suppliers from './Pages/Suppliers';
+import Reports from './Pages/Reports';
+
+
 
 
 
@@ -19,11 +27,16 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Layout />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/inventory' element={<Inventory />} />
-          <Route path='/reports' element={<Reports />} />
-          <Route path='/suppliers' element={<Suppliers />} />
-        </Routes>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="inventory" element={<Inventory />} />
+          <Route path="inventory/category" element={<CategoryOverview/>} />
+          <Route path="inventory/category/item" element={<ItemOverview />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="suppliers" element={<Suppliers />} />
+          <Route path="reports/activityhistory" element={<Activityhistory />} />
+          <Route path="reports/inventorysummary" element={<InventorySummary />} />
+        
+         </Routes>
       </BrowserRouter>
     </div>
   );

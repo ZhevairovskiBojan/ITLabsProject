@@ -16,6 +16,7 @@ app.use(cors())
 // );
 
 app.get('/api/v1/orders/allOrders', auth.getAllOrders);
+app.get("/api/v1/orders/total-price", auth.getTotalOrderPrice);
 app.get('/api/v1/orders/oneOrder/:id', auth.getOneOrder);
 app.post('/api/v1/orders/newOrder', auth.createOrder);
 app.patch('/api/v1/orders/updateOrder/:id', auth.updateOrder);
