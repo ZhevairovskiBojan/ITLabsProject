@@ -10,9 +10,11 @@ const CategoryCardList = (props) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
   useEffect(() => {
-    if (props.newCategories !== null)
-      setCategories([...categories, props.newCategories]);
+    if (props.newCategories !== null && props.newCategories !== undefined) {
+      setCategories(prevCategories => [...prevCategories, props.newCategories]);
+    }
   }, [props.newCategories]);
+  
 
   useEffect(() => {
     fetch("/api/v1/category", {
