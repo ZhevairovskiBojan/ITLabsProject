@@ -3,18 +3,13 @@ import Register from './components/Register/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CategoryOverview from "../src/components/Cards/CategoryOverview/CategoryOverview"
 import ItemOverview from "../src/components/Cards/ItemOverview/ItemOverview";
-import Activityhistory from "../src/Pages/Activityhistory"
+import Activityhistory from "../src/Pages/Activityhistory/Activityhistory"
 import InventorySummary from "./components/InventorySummary/inventorySummary"
-
-
 import Layout from './components/Layout/Layout';
-import Dashboard from './Pages/Dashboard';
-import Inventory from './Pages/Inventory';
-import Suppliers from './Pages/Suppliers';
-import Reports from './Pages/Reports';
-
-
-
+import Dashboard from "./Pages/DashboardPage/Dashboard"
+import Inventory from "./Pages/InventoryPage/Inventory";
+import Suppliers from "./Pages/SuppliersPage/Suppliers";
+import Reports from './Pages/ReportsPage/Reports';
 
 
 function App() {

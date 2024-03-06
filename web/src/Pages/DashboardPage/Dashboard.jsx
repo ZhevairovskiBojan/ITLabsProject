@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import CategoryCard from "../../src/components/Cards/SummaryCard/Category-Card";
-import TotalItemCard from "../components/Cards/SummaryCard/Total-Item-Card";
-import OrderCard from "../components/Cards/SummaryCard/Order-Card";
-import CostCard from "../components/Cards/SummaryCard/Cost-Card";
+import CategoryCard from "../../components/Cards/CategoryCard/CategoryCardList";
+import TotalItemCard from "../../components/Cards/SummaryCard/Total-Item-Card";
+import OrderCard from "../../components/Cards/SummaryCard/Order-Card";
+import CostCard from "../../components/Cards/SummaryCard/Cost-Card";
 import "./Dashboard.css";
-import RecentActivity from "../components/RecentActivity/RecentActivity";
-import RecentOrdersList from "../components/Cards/RecentOrderCard/RecentOrderList";
-import Navigation from "../components/Navigation/navigation";
+import RecentActivity from "../../components/RecentActivity/RecentActivity";
+import RecentOrdersList from "../../components/Cards/RecentOrderCard/RecentOrderList";
+import Navigation from "../../components/Navigation/navigation";
 
 const Dashboard = () => {
 

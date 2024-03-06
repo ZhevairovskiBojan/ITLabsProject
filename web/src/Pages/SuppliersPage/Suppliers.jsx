@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Suppliers.css";
-import ModalAddSupplier from "../components/Modals/ModalAddSupliers";
-import SupplierList from "../components/Cards/SupplierCard/SupplierList";
+import ModalAddSupplier from "../../components/Modals/ModalAddSupliers";
+import SupplierList from "../../Pages/SuppliersPage/SuppliersModal";
 
 const Suppliers = () => {
   const [openModal, setOpenModal] = useState(false);

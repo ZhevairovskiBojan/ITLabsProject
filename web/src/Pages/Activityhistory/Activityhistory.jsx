@@ -1,6 +1,6 @@
 import React from "react";
 import "./Activityhistory.css";
-import RecentActivityHistory from "../components/RecentActivity/RecentActivityHistory";
+import RecentActivityHistory from "../../components/RecentActivity/RecentActivityHistory";
 
 const Activityhistory = () => {
   return (

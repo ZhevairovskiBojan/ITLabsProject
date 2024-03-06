@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./InventorySummary.css";
-import "../../src/components/AddButton/AddButton.css";
+import "./../InventorySummary/InventorySummary.css";
+import "../../components/AddButton/AddButton";
 import "./Inventory.css";
-import { CURRENCY_SYMBOL } from "../../src/util/constants";
-import ModalAddCategory from "../components/Modals/ModalAddCategory";
-import CategoryCardList from "../components/Cards/CategoryCard/CategoryCardList";
+import { CURRENCY_SYMBOL } from "../../util/constants";
+import ModalAddCategory from "../../components/Modals/ModalAddCategory";
+import CategoryCardList from "../../components/Cards/CategoryCard/CategoryCardList";
 
 const Inventory = () => {
   const [openModal, setOpenModal] = useState(false);

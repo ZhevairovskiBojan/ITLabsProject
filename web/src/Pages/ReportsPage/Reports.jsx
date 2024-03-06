@@ -12,7 +12,7 @@ const Reports = () => {
       <div className="reports">
         <div className="activityhistory">
           <img
-            src={require("../imgs/TimeMachine.png")}
+            src={require("../../imgs/TimeMachine.png")}
             alt="timemachine"
             width={50}
             height={50}
@@ -30,7 +30,7 @@ const Reports = () => {
         </div>
         <div className="inventorysummary">
           <img
-            src={require("../imgs/inventory_icon.png")}
+            src={require("../../imgs/inventory_icon.png")}
             alt="inventory"
             width={50}
             height={50}
