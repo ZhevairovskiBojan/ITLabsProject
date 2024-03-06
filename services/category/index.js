@@ -2,7 +2,7 @@ const express = require('express');
 const auth = require ('../../services/category/categoryHandler/authHandler');
 const db = require ('../../pkb/db/index');
 const cors = require('cors');
-// const jwt = require ('express-jwt');
+const jwt = require ('express-jwt');
 
 const app = express();
 
