@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const { Activity } = require("../../../pkb/recentActivity/recentActivitySchema");
 
 const getActivities = async (activityAction) => {
-  if (activityAction !== null || activityAction !== "") {
+  if (activityAction !== null && activityAction !== "") {
     return await Activity.find({ action: activityAction });
   }
   return await Activity.find();
 };
+
 
 const createActivity = async (a) => {
   const activity = new Activity(a);

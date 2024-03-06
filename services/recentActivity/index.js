@@ -16,8 +16,16 @@ app.use(cors())
 //  })
 // );
 
-app.get('/api/v1/recentActivity/activities', auth.getRecentActivity);
-
+app.get('/api/v1/recentActivity/activities', async (req, res) => {
+  try {
+    
+    const recentActivity = await auth.getRecentActivity(req.query);
+    res.json(recentActivity);
+  } catch (error) {
+    console.error('Error fetching recent activities:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.listen(process.env.PORTACTIVITY, (err) => {
   if (err) {
