@@ -7,6 +7,7 @@ import "./Dashboard.css";
 import RecentActivity from "../../components/RecentActivity/RecentActivity";
 import RecentOrdersList from "../../components/Cards/RecentOrderCard/RecentOrderList";
 import Navigation from "../../components/Navigation/navigation";
+import HeaderDashBoard from "../../components/HeaderDashBoard/headerDashBoard";
 
 const Dashboard = () => {
 
@@ -24,19 +25,19 @@ const Dashboard = () => {
     <div className="dashboard-container">
      
       <header className="header">
-        <h1>Dashboard </h1>
+        
         <h2>Welcome back {username}</h2>
       </header>
       <hr />
 
-      <div className="section-container">
+      <div className="main-section">
         <div className="inventory-summary section">
           <h3>Inventory summary</h3>
           <div className="cards">
           <aside>
         < Navigation />
       </aside>
-            
+            <HeaderDashBoard />
             <CategoryCard />
             <TotalItemCard />
             <OrderCard />

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { Activity } = require("../../../pkb/recentActivity/recentActivitySchema");
 
 const getActivities = async (activityAction) => {
@@ -8,7 +7,6 @@ const getActivities = async (activityAction) => {
   }
   return await Activity.find();
 };
-
 
 const createActivity = async (a) => {
   const activity = new Activity(a);
@@ -19,6 +17,5 @@ module.exports = {
   getActivities,
   createActivity,
 };
-
 
   

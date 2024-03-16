@@ -38,11 +38,11 @@ exports.getOneItem = async (req,res) => {
 
 exports.createItems = async (req, res) => {
     try {
-        const newItems = await items.create(req.body); 
+        const newItem = await items.create(req.body);
         res.status(201).json({
             status: 'success',
             data: {
-                newItems,
+                item: newItem, 
             }
         });
     } catch(err) {
@@ -53,7 +53,7 @@ exports.createItems = async (req, res) => {
     }
 };
 
-exports.updateItems = async (req, res) => {
+exports.updateItem = async (req, res) => {
     try {
         const updateItems = await items.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -63,7 +63,7 @@ exports.updateItems = async (req, res) => {
         res.status(200).json({
             status: 'success',
             data: {
-                updateItems,
+                updateItem,
             },
         });
 
@@ -76,7 +76,7 @@ exports.updateItems = async (req, res) => {
     }
 };
 
-exports.deleteItems = async (req, res) => {
+exports.deleteItem = async (req, res) => {
     try {
         await items.findByIdAndDelete(req.params.id);
         res.status(204).json({

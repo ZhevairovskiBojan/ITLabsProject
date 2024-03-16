@@ -7,6 +7,7 @@ import signout_icon from "../../imgs/signout_icon.png";
 import { NavLink } from "react-router-dom";
 
 
+
 export default function Navigation() {
   return (
     <div className={styles.navigation}>

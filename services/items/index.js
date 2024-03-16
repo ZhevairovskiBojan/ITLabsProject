@@ -18,9 +18,9 @@ app.use(jwt.expressjwt({
 app.get('/api/v1/items/allItems', auth.getAllItems); 
 app.get('/api/v1/items/oneItem/:id', auth.getOneItem); 
 app.post('/api/v1/items/newItem/:id', auth.createItems); 
-app.patch('/api/v1/items/updateItem/:id', auth.updateItems); 
-app.delete('/api/v1/items/deleteItems/:id', auth.deleteItems); 
-app.delete('/api/v1/items/deleteItem/:id', auth.deleteItems);
+app.patch('/api/v1/items/updateItem/:id', auth.updateItem); 
+app.delete('/api/v1/items/deleteItem/:id', auth.deleteItem); 
+
 
 
 app.listen(process.env.PORTITEMS, (err) => {

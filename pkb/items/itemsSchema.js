@@ -4,7 +4,7 @@ const itemsSchema = new mongoose.Schema({
     
     name: {
         type: String,
-        requried: [true, "The field is required"]
+        required: [true, "The field is required"]
     },
 
     image: {
@@ -12,7 +12,9 @@ const itemsSchema = new mongoose.Schema({
     },
 
     category: {
-        enum: ["Office Supply", "Kitchen Supply", "Sanitary Supply"]
+        type: String,
+        enum: ["Office Supply", "Kitchen Supply", "Sanitary Supply"],
+        required: [true, "The category field is required"]
     },
 
     numberOfOrders: {
