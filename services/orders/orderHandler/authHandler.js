@@ -1,4 +1,4 @@
-const orders = require('../../../pkb/orders/orderSchema');
+const orders = require('../../../pkg/orders/orderSchema');
 
 
 

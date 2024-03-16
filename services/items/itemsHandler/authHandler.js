@@ -1,4 +1,4 @@
-const items = require('../../../pkb/items/itemsSchema');
+const items = require('../../../pkg/items/itemsSchema');
 
 
 exports.getAllItems = async (req, res) => {

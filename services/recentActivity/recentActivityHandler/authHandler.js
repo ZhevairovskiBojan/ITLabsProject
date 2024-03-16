@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Activity } = require("../../../pkb/recentActivity/recentActivitySchema");
+const { Activity } = require("../../../pkg/recentActivity/recentActivitySchema");
 
 const getActivities = async (activityAction) => {
   if (activityAction !== null && activityAction !== "") {

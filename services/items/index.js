@@ -1,6 +1,6 @@
 const express = require('express');
 const auth = require ('../../services/items/itemsHandler/authHandler');
-const db = require ('../../pkb/db/index');
+const db = require ('../../pkg/db/index');
 const cors = require('cors');
 const jwt = require ('express-jwt');
 

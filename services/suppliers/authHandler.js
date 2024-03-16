@@ -1,4 +1,4 @@
-const supplier = require('../../pkb/suppliers/suppliersSchema');
+const supplier = require('../../pkg/suppliers/suppliersSchema');
 
 
 exports.getAllSuppliers = async (req, res) => {

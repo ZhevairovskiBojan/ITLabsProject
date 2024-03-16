@@ -1,4 +1,4 @@
-const category = require('../../../pkb/category/categorySchema');
+const category = require('../../../pkg/category/categorySchema');
 
 exports.getAllCategory = async (req, res) => {
     try {
