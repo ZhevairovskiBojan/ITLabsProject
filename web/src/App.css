@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,3 +37,19 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: 'Poppins';
+  background-color: #EAEAEA;
+};
+
+.outlet_section {
+  background-color: #EAEAEA;
+ }
+
+.content-section {
+  width:82%;
+  position: relative;
+  left: 18%;
+};
+

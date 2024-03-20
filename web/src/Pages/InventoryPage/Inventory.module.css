@@ -1,0 +1,12 @@
+.page_wrapper{
+    flex: 1;
+    height:84vh;
+    margin: auto;
+    width: 94%;
+    padding: 10px;   
+  }
+
+  .inv {
+    width: 100%;
+    height: 50px;  
+  }

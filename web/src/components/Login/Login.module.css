@@ -1,4 +1,4 @@
-.loginModule {
+.login_module {
   font-family: "Arial", sans-serif;
   background: #b5d6b5;
   position: absolute;
@@ -12,27 +12,26 @@
   justify-content: center;
 }
 
-.card {
+.card_login {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
-  
 }
 
-h2 {
+.h2_login {
   color: #000000;
 }
 
-label {
+.label_login {
   display: block;
   margin: 10px 0;
   color: #000000;
 }
 
-input {
+.input_login {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -42,7 +41,7 @@ input {
   border-radius: 4px;
 }
 
-button {
+.button_login {
   padding: 10px;
   background-color: #53a856;
   color: #fff;
@@ -50,17 +49,18 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  width: 100%;
 }
 
-button:hover {
+.button_login:hover {
   background-color: #319b35;
 }
 
-.app-logo {
+.app_logoLogin {
   width: 345px;
   height: 190px;
   position: absolute;
   top: 0%;
   bottom: auto;
-  left:50px;
+  left: 50px;
 }

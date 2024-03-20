@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./CategoryCard.css";
 import ModalDelete from "../../Modals/ModalDelete";
 
-
 const CategoryCardList = (props) => {
   const [categories, setCategories] = useState([]);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -11,13 +10,12 @@ const CategoryCardList = (props) => {
 
   useEffect(() => {
     if (props.newCategories !== null && props.newCategories !== undefined) {
-      setCategories(prevCategories => [...prevCategories, props.newCategories]);
+      setCategories((prevCategories) => [...prevCategories, props.newCategories]);
     }
   }, [props.newCategories]);
-  
 
   useEffect(() => {
-    fetch("/api/v1/category", {
+    fetch("/api/v1/category/categories", {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -25,8 +23,8 @@ const CategoryCardList = (props) => {
       },
     })
       .then((response) => response.json())
-      .then((data) => setCategories(data))
-      .catch((err) => console.err);
+      .then((data) => setCategories(data.categories || [])) 
+      .catch((err) => console.error(err));
   }, []);
 
   const handleDeleteClick = (categoryId) => {
@@ -36,7 +34,7 @@ const CategoryCardList = (props) => {
 
   const handleDeleteCategory = async () => {
     try {
-      const res = await fetch(`/api/v1/category/${selectedCategoryId}`, {
+      const res = await fetch(`/api/v1/category/categoryDelete/${selectedCategoryId}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -44,15 +42,13 @@ const CategoryCardList = (props) => {
         },
       });
       if (!res.ok) {
-        throw "Failed to delete category";
+        throw new Error("Failed to delete category");
       }
-      setCategories(
-        categories.filter((category) => category._id !== selectedCategoryId)
-      );
+      setCategories(categories.filter((category) => category._id !== selectedCategoryId));
       setOpenDeleteModal(false);
-      props.onCategoryDeleted();
+      if(props.onCategoryDeleted) props.onCategoryDeleted();
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -62,28 +58,25 @@ const CategoryCardList = (props) => {
         <div key={category._id} className="category-card">
           <NavLink
             className="navlink-category"
-            to="/inventory/category"
+            to={`/inventory/category/${category._id}`}
             state={{ categoryId: category._id, categoryName: category.name }}
           >
-            <img alt="Category-Img" />
+            <img src={category.icon || "/default-icon.png"} alt="Category" />
             <div>
               <h4>{category.name}</h4>
               <p>
-                <b>{category.items.length} Items</b> | {"$"} {""}{" "}
-                {category.items.reduce((totalPrice, currentItem) => {
-                  return (
-                    totalPrice +
-                    currentItem.orders.reduce((previousPrice, currentOrder) => {
-                      return previousPrice + Number(currentOrder.price);
-                    }, 0)
-                  );
-                }, 0)}
+                <b>{category.items?.length || 0} Items</b> | ${" "}
+                {category.items?.reduce((totalPrice, currentItem) => (
+                  totalPrice + currentItem.orders?.reduce((previousPrice, currentOrder) => (
+                    previousPrice + Number(currentOrder.price || 0)
+                  ), 0)
+                ), 0) || 0}
               </p>
             </div>
           </NavLink>
-          <p>Updated At:</p>
+          <p>Updated At: {new Date(category.updatedAt).toLocaleDateString()}</p>
           <div className="upddelbtn">
-            <p className="upd">{category.updatedAt}</p>
+            <p className="upd">{new Date(category.updatedAt).toLocaleString()}</p>
             <button
               onClick={() => handleDeleteClick(category._id)}
               className="delbtn"
@@ -91,7 +84,7 @@ const CategoryCardList = (props) => {
               <img
                 className="deletebtn"
                 src={require("../../../imgs/deletebtn.png")}
-                alt="deletebtn"
+                alt="Delete"
                 width={20}
                 height={20}
               />
@@ -99,7 +92,7 @@ const CategoryCardList = (props) => {
           </div>
         </div>
       ))}
-      < ModalDelete
+      <ModalDelete
         open={openDeleteModal}
         onClose={() => setOpenDeleteModal(false)}
         onDelete={handleDeleteCategory}

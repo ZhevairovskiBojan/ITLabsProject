@@ -10,7 +10,7 @@ const ModalAddCategory = ({ open, onClose, onAdd }) => {
     e.preventDefault();
 
     try {
-      let res = await fetch("/api/v1/category", {
+      let res = await fetch("/api/v1/category/newCategory", {
         method: "POST",
         body: JSON.stringify({ name }),
         headers: {

@@ -14,7 +14,10 @@ const categorySchema = new mongoose.Schema({
     categories: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
-    }]
+    }],
+
+    //  timestamps: true,
+
 });
 
 const category = mongoose.model('category', categorySchema);

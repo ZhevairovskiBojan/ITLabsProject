@@ -1,115 +1,111 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom"; 
 import styles from "./Register.module.css";
 import logo from "../../imgs/logo.png";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const initData = {
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
     name: "",
-  };
-
-  const [data, setData] = useState(initData);
+  });
+  
   const navigate = useNavigate();
 
-  const dataChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target; // Destructuring for clarity
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  const register = async () => {
-    if (!data.email || !data.password || !data.name) {
+  const handleSubmit = async () => {
+    const { email, password, name } = formData; // Destructuring for clarity
+    if (!email || !password || !name) {
       alert("Please fill in all fields.");
       return;
     }
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-      alert("Please provide a valid email or password.");
+    if (!emailRegex.test(email)) {
+      alert("Please provide a valid email.");
       return;
     }
 
-    if (data.password.length < 6) {
+    if (password.length < 6) {
       alert("Password must be at least 6 characters long.");
       return;
     }
+    
     try {
-      console.log("Registering user:", data);
-
-      let res = await fetch('/api/v1/auth/create-account', {
+      const response = await fetch('/api/v1/auth/create-account', {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
       });
 
-      console.log("Response:", res);
-
-      if (res.ok) {
+      if (response.ok) {
         alert('User is created');
         navigate("/login");
       } else {
-        const errorData = await res.json();
-        console.log("Error:", errorData);
+        const errorData = await response.json();
+        alert(`Registration failed: ${errorData.message}`);
       }
     } catch (err) {
       console.error("Error during registration:", err);
+      alert("An error occurred. Please try again.");
     }
   };
 
   return (
     <div className={styles.registerModule}> 
-      <div className={styles.card}>
+      <div className={styles.cardRegister}>
         <h2>Register</h2>
-        <label>
-          <span>Email</span>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}>
+          <div className={styles.fieldRegister}>
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className={styles.inputRegister} 
+            />
+          </div>
+          
+          <div className={styles.fieldRegister}>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className={styles.inputRegister}
+            />
+          </div>
+
+          <div className={styles.fieldRegister}>
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className={styles.inputRegister} 
+            />
+          </div>
           <br />
-          <input
-            type="email"
-            name="email"
-            value={data.email}
-            onChange={dataChange}
-            className={styles.input} 
-          ></input>
-        </label>
-        <br />
-        <label>
-          <span>Password</span>
-          <br />
-          <input
-            type="password"
-            name="password"
-            value={data.password}
-            onChange={dataChange}
-            className={styles.input}
-          ></input>
-        </label>
-        <br />
-        <label>
-          <span>Full Name</span>
-          <br />
-          <input
-            type="text"
-            name="name"
-            value={data.name}
-            onChange={dataChange}
-            className={styles.input} 
-          ></input>
-          <br />
-        </label>
-        <br />
-        <button onClick={register} className={styles.button}> 
-          Register
-        </button>
-        <NavLink to={"/login"}>
-        <div className={styles["app-logo"]}>
-          <img src={logo} alt="logo" />
-        </div>
-      </NavLink>
+
+          <button type="submit" className={styles.buttonRegister}>Register</button>
+        </form>
+
+        <NavLink to={"/login"} className={styles.logoLinkRegister}>
+          <img src={logo} alt="logo" className={styles.logoRegister} />
+        </NavLink>
       </div>
     </div>
   );

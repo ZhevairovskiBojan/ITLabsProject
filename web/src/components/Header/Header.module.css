@@ -1,0 +1,47 @@
+.topsection{
+    height: 60px;
+    padding-left: 140px;
+    }
+    .headerwrapper{
+      width: 82%;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 8px;
+    
+    }
+      .leftheading {
+       width: auto;
+       text-align: left;
+       font-size: 30px;
+       line-height: 30px;
+       margin-left: 30px;
+      }
+      .rightheading {
+       width: auto;
+       text-align: right;
+       font-size: 18px;
+       line-height: 34px;
+       margin-right: 30px;
+       display: flex;
+       align-items:flex-end;
+       gap: 4px;
+      }
+      .rightheading img{
+      height: 40px;
+      width: 40px;
+      }
+    
+      .border{
+      height: 2px;
+      width: 95%;
+      background-color: #5C5C5C;
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      right: 30px;
+      }
