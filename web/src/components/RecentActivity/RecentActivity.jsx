@@ -71,7 +71,7 @@ export const RecentActivity = () => {
 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containerRecActy}>
       <h2 className={styles.recenth2}>Recent Activity</h2>
       <div className={styles.activitybox}>
           <p className={styles.activitytext}>Activity1: Lorem ipsum dolor sit amet...</p>

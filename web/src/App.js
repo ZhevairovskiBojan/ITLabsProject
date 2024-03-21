@@ -24,7 +24,8 @@ import { DashboardPage } from "./Pages/DashboardPage/Dashboard";
 import { InventoryPage } from "./Pages/InventoryPage/Inventory";
 import { ReportsPage } from "./Pages/ReportsPage/Reports";
 import { SuppliersPage } from "./Pages/SuppliersPage/Suppliers";
-import { NotFound } from "./Pages/NotFound";
+import { NotFound } from "./Pages/NotFound/NotFound";
+
 
 function App() {
   const location = useLocation();
@@ -37,12 +38,15 @@ function App() {
       
       {!isAuthPage && <Navbar />}
       {!isAuthPage && <Header />}
+      
+      
+      
 
       
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
+        
       </Routes>
 
       
@@ -54,6 +58,7 @@ function App() {
             <Route path="/inventory" element={<InventoryPage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/suppliers" element={<SuppliersPage />} />
+            <Route path="*" element={<NotFound />} />
             </Routes>
         </section>
       )}

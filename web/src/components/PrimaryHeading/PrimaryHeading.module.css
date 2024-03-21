@@ -1,0 +1,13 @@
+
+.primary_heading{
+    width: 500px;
+    height: 30px;
+    color: #3E4153;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: left;
+    position: relative;
+}
