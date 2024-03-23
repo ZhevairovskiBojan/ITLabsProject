@@ -1,0 +1,17 @@
+.btn_wrap{
+    height: 500px;
+    position: relative;
+    padding-top: 20px;
+  }
+  .buttons{
+     display: flex;
+     flex-direction: column;
+     align-items:flex-end;
+     position: absolute;
+     right: 0;
+  }
+  .toggle_wrapper{
+    display: flex;
+    background-color: rgb(179, 109, 244);
+  }
+  
