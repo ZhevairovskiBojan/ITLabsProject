@@ -26,6 +26,10 @@ export const Header = () => {
                 return 'Reports';
             case '/suppliers':
                 return 'Suppliers';
+            case '/reports/activityhistory':
+                return 'Reports > Activity History';
+            case '/reports/inventorysummary':
+                return 'Reports > Inventory Summary';
             default:
                 return '';
         }

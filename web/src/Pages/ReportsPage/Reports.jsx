@@ -53,12 +53,14 @@
 
 // export default Reports;
 
+import { ReportsComponent } from "../../components/ReportsComponent/Reports"
 import styles from "./Reports.module.css"
 
-export const ReportsPage = () => {
+
+export const Reports = () => {
   return(
-    <div className={styles.page_wrapper}> 
-    <h1> REPORTS page </h1>
-    </div>
-  );
-};
+          <div className={styles.page_wrapper}> 
+          <ReportsComponent />
+          </div>
+  )
+}

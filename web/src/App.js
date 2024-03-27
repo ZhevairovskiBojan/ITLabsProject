@@ -22,9 +22,11 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { DashboardPage } from "./Pages/DashboardPage/Dashboard";
 import { InventoryPage } from "./Pages/InventoryPage/Inventory";
-import { ReportsPage } from "./Pages/ReportsPage/Reports";
+import { Reports, ReportsPage } from "./Pages/ReportsPage/Reports";
 import { SuppliersPage } from "./Pages/SuppliersPage/Suppliers";
 import { NotFound } from "./Pages/NotFound/NotFound";
+import { ActivityHistory } from "./Pages/ActivityHistory/ActivityHistory";
+import { Chart } from "./Pages/RecentSummary/RecentSummary";
 
 
 function App() {
@@ -56,8 +58,14 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/inventory" element={<InventoryPage />} />
-            <Route path="/reports" element={<ReportsPage />} />
-            <Route path="/suppliers" element={<SuppliersPage />} />
+            {/* <Route path="/reports" element={<Reports />} /> */}
+            {/* <Route path="/suppliers" element={<SuppliersPage />} /> */}
+            <Route path="/reports">
+            <Route index element={<Reports />} />
+            <Route path="activityhistory" element={<ActivityHistory />} />
+            <Route path="inventorysummary" element={<Chart />} />
+          </Route>
+
             <Route path="*" element={<NotFound />} />
             </Routes>
         </section>
