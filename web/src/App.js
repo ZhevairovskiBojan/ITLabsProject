@@ -1,17 +1,3 @@
-// import Login from './components/Login/Login';
-// import Register from './components/Register/Register';
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import CategoryOverview from "../src/components/Cards/CategoryOverview/CategoryOverview"
-// import ItemOverview from "../src/components/Cards/ItemOverview/ItemOverview";
-// import Activityhistory from "../src/Pages/Activityhistory/Activityhistory"
-// import InventorySummary from "./components/InventorySummary/inventorySummary"
-// import Layout from './components/Layout/Layout';
-// import Dashboard from "./Pages/DashboardPage/Dashboard"
-// import Inventory from "./Pages/InventoryPage/Inventory";
-// import Suppliers from "./Pages/SuppliersPage/Suppliers";
-// import Reports from './Pages/ReportsPage/Reports';
-
-
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -23,10 +9,11 @@ import Register from "./components/Register/Register";
 import { DashboardPage } from "./Pages/DashboardPage/Dashboard";
 import { InventoryPage } from "./Pages/InventoryPage/Inventory";
 import { Reports, ReportsPage } from "./Pages/ReportsPage/Reports";
-import { SuppliersPage } from "./Pages/SuppliersPage/Suppliers";
+
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { ActivityHistory } from "./Pages/ActivityHistory/ActivityHistory";
 import { Chart } from "./Pages/RecentSummary/RecentSummary";
+import { SupplierPage } from "./Pages/SupplierPage/Suppliers";
 
 
 function App() {
@@ -41,10 +28,6 @@ function App() {
       {!isAuthPage && <Navbar />}
       {!isAuthPage && <Header />}
       
-      
-      
-
-      
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -58,8 +41,7 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/inventory" element={<InventoryPage />} />
-            {/* <Route path="/reports" element={<Reports />} /> */}
-            {/* <Route path="/suppliers" element={<SuppliersPage />} /> */}
+            <Route path="/suppliers" element={<SupplierPage/>} />
             <Route path="/reports">
             <Route index element={<Reports />} />
             <Route path="activityhistory" element={<ActivityHistory />} />

@@ -1,29 +1,26 @@
 const mongoose = require ('mongoose');
 
 const suppliersSchema = new mongoose.Schema({
-    
     name: {
         type: String,
-        
     },
-    adress: {
+    address: {
         type: String,
     },
-
     phonenumber: {
         type: String,
     },
-
     email: {
         type: String,
-
     },
-
-    suppliers: [{
+  
+    subSuppliers: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'suppliers',
+        ref: 'Supplier',
     }]
 });
 
-const suppliers = mongoose.model('suppliers', suppliersSchema);
+const Supplier = mongoose.model('Supplier', suppliersSchema);
+module.exports = Supplier;
+
 module.exports = suppliers;

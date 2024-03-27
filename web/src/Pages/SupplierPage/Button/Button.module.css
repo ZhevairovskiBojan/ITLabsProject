@@ -1,0 +1,30 @@
+.button{
+    width: 160px;
+    height: 40px;
+    background: #53A856;
+    box-shadow: 3px 3px 4px 0px #00000040;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 3%;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn_symbol{
+    width: 26px;
+    height: 26px;
+    background: #5DDB62;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+}
+.btn_symbol img {
+    width: 20px;
+    height: 20px;;
+}

@@ -1,0 +1,24 @@
+.page_wrapper{
+    flex: 1;
+    margin: auto;
+    width: 96%;
+    padding: 10px;
+  }
+
+.subheader{
+  padding-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.suppliers_wrap{
+  width: 960px;
+  height: 520px;
+  flex: 1;
+  margin: auto;
+  width: 96%;
+  padding: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 49.82%, rgba(255, 249, 249, 0.8) 100%);
+}
