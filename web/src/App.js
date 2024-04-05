@@ -12,8 +12,9 @@ import { Reports, ReportsPage } from "./Pages/ReportsPage/Reports";
 
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { ActivityHistory } from "./Pages/ActivityHistory/ActivityHistory";
-import { Chart } from "./Pages/RecentSummary/RecentSummary";
+import InventorySummaryReport, { Chart, RecentSummaryReport } from "./Pages/RecentSummary/RecentSummary";
 import { SupplierPage } from "./Pages/SupplierPage/Suppliers";
+import FetchContextProvider from "./util/FetchContextProvider";
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
       
       {!isAuthPage && <Navbar />}
       {!isAuthPage && <Header />}
-      
+  
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -38,18 +39,24 @@ function App() {
       {!isAuthPage && (
         <section className="content-section">
           <Outlet />
+          <FetchContextProvider>
           <Routes>
+            
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/inventory" element={<InventoryPage />} />
             <Route path="/suppliers" element={<SupplierPage/>} />
             <Route path="/reports">
             <Route index element={<Reports />} />
             <Route path="activityhistory" element={<ActivityHistory />} />
-            <Route path="inventorysummary" element={<Chart />} />
+            <Route path="/reports/inventorysummary" element={<RecentSummaryReport />} />
           </Route>
+          
 
             <Route path="*" element={<NotFound />} />
             </Routes>
+            </FetchContextProvider>
+       
+            
         </section>
       )}
     </div>

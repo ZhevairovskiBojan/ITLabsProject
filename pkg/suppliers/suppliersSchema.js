@@ -23,4 +23,4 @@ const suppliersSchema = new mongoose.Schema({
 const Supplier = mongoose.model('Supplier', suppliersSchema);
 module.exports = Supplier;
 
-module.exports = suppliers;
+module.exports = Supplier;

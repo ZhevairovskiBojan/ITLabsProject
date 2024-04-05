@@ -1,18 +1,29 @@
-import React from "react";
-import "./AddButton.css"
-import addnew from "../../imgs/addnew.png";
-import { model } from "mongoose";
+import styles from "../AddButton/AddButton.module.css"
+import AddNew from "../../imgs/addnew.png" 
+import { useModal } from "../Modals/ModalContext";
 
 
-const AddButton = () => {
-    return (
-        <div className="add">
-            <button className="add-btn">
-            <img src={addnew} alt="addnew"/>
-            <span>ADD {model}</span>
-            </button>
+
+export const Button = ({ onClick, text, modalContent }) => {
+  const { openModal } = useModal();
+  
+
+  const handleClick = () => {
+    if (modalContent) {
+      openModal(modalContent);
+    } else {
+      onClick();
+    }
+  };
+
+  return (
+    <button className={styles.button} onClick={handleClick}>
+     
+        <div className={styles.btn_symbol} >
+            <img src={AddNew} alt="addnew_icon" />
         </div>
-    );
+      {text}
+    </button>
+    
+  );
 };
-
-export default AddButton;

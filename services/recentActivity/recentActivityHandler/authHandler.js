@@ -1,21 +1,60 @@
-const mongoose = require("mongoose");
-const { Activity } = require("../../../pkg/recentActivity/recentActivitySchema");
+const Activity = require("../../../pkg/recentActivity/recentActivitySchema");
+const Items = require("../../../pkg/items/itemsSchema");
 
-const getActivities = async (activityAction) => {
-  if (activityAction !== null && activityAction !== "") {
-    return await Activity.find({ action: activityAction });
+exports.getAllActivities = async (req, res) => {
+  try {
+    const activities = await Activity.find();
+
+    res.status(200).json({
+      status: "success",
+      data: activities,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
   }
-  return await Activity.find();
 };
 
-const createActivity = async (a) => {
-  const activity = new Activity(a);
-  return await activity.save();
+exports.getActivity = async (req, res) => {
+  try {
+    const activity = await Activity.findById(req.params.id);
+
+    res.status(200).json({
+      status: "success",
+      data: activity,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
 };
 
-module.exports = {
-  getActivities,
-  createActivity,
-};
+exports.createActivity = async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const item = await Items.findById(itemId).populate("categoryId");
 
-  
+    const newActivity = await Activity.create({
+      itemId,
+      itemName: item.name,
+      categoryName: item.categoryId.title,
+      date: new Date(),
+    });
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        newActivity
+      },     
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};

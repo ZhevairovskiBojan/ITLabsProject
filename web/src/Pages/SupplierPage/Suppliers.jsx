@@ -1,8 +1,10 @@
+import { Button } from "../../components/AddButton/AddButton";
 import { ModalProvider } from "../../components/Modals/ModalContext";
+
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Suppliers } from "../../components/SupplyCard/Supplycard";
 import { searchDatabase } from "../../util/api";
-import { Button } from "./Button/Button";
+
 import styles from "./Suppliers.module.css"
 
 
