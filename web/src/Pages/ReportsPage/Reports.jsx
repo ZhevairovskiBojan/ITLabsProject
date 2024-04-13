@@ -1,5 +1,3 @@
-
-
 import { ReportsComponent } from "../../components/ReportsComponent/Reports"
 import styles from "./Reports.module.css"
 

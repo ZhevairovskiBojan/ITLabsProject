@@ -1,0 +1,76 @@
+.activityHistory {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+
+.activitiesContainer {
+    margin-top: 20px;
+    display: flex;
+    gap: 60px;
+}
+
+.leftPart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sortIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.activities {
+    width: 850px;
+    height: 550px;
+    margin-left: 40px;
+    padding-top: 10px;
+}
+
+.activityFilter {
+    width: 280px;
+    height: 360px;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 20px;
+}
+
+.activityFilter h1 {
+    height: 25px;
+    margin-left: 15px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3E4153;
+}
+
+.activityForm {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.activityForm label {
+    font-size: 13px;
+}
+
+.activityForm input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #53A856;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.activityForm input[type="radio"]:checked {
+    background-color: #53A856; 
+    border-color: #53A856;
+  }

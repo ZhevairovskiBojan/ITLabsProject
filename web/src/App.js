@@ -48,6 +48,7 @@ function App() {
             <Route path="/reports">
             <Route index element={<Reports />} />
             <Route path="activityhistory" element={<ActivityHistory />} />
+            <Route path="/reports/activity-history" element={<ActivityHistory />} />
             <Route path="/reports/inventorysummary" element={<RecentSummaryReport />} />
           </Route>
           
