@@ -5,8 +5,6 @@ import PaperIcon from "../../imgs/Paper.png";
 import CoinsIcon from "../../imgs/Coins.png";
 
 
-
-
 export const InventorySummary = () => {
 
     return(

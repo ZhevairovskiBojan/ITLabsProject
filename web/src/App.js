@@ -8,11 +8,11 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { DashboardPage } from "./Pages/DashboardPage/Dashboard";
 import { InventoryPage } from "./Pages/InventoryPage/Inventory";
-import { Reports, ReportsPage } from "./Pages/ReportsPage/Reports";
+import { Reports } from "./Pages/ReportsPage/Reports";
 
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { ActivityHistory } from "./Pages/ActivityHistory/ActivityHistory";
-import InventorySummaryReport, { Chart, RecentSummaryReport } from "./Pages/RecentSummary/RecentSummary";
+import { RecentSummaryReport } from "./Pages/RecentSummary/RecentSummary";
 import { SupplierPage } from "./Pages/SupplierPage/Suppliers";
 import FetchContextProvider from "./util/FetchContextProvider";
 
