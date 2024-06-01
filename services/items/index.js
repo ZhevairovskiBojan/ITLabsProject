@@ -22,7 +22,6 @@ app.patch('/api/v1/items/updateItem/:id', auth.updateItem);
 app.delete('/api/v1/items/deleteItem/:id', auth.deleteItem); 
 
 
-
 app.listen(process.env.PORTITEMS, (err) => {
   if (err) {
       console.log('Could not start service');

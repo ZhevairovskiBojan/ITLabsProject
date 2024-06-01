@@ -1,0 +1,16 @@
+.page_wrapper{
+    flex: 1;
+    height:84vh;
+    margin: auto;
+    width: 94%;
+    padding: 10px;
+  }
+  
+.subheader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 10px;
+    padding-bottom: 30px;
+}

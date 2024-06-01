@@ -74,3 +74,9 @@
     background-color: #53A856; 
     border-color: #53A856;
   }
+
+  .page_wrapper {
+    flex: 1;
+    margin: auto;
+    width: 96%;
+  }

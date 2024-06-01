@@ -1,7 +1,7 @@
 import styles from "./ActivityHistory.module.css"
 import { useContext, useState } from "react";
 import { Context } from "../../util/FetchContextProvider";
-import ActivityItem from "../../components/ActivityItem/ActivityItem";
+import { Activity} from "../../components/ActivityItem/ActivityItem";
 import Descending_Sorting from "../../imgs/Descending_Sorting.png"
 
 export const ActivityHistory = () => {
@@ -32,7 +32,9 @@ export const ActivityHistory = () => {
     const latestActivities = filtered.slice(0,11);
   
     return (
-        <div className={styles.ActivityHistory}>
+      <div className={styles.page_wrapper}>
+      <Activity />
+      <div className={styles.ActivityHistory}>
             
           <main>
            
@@ -41,7 +43,7 @@ export const ActivityHistory = () => {
               <img src={Descending_Sorting} alt="sort-icon" className={styles.sortIcon} />
                 <div className={styles.activities}>
                   {latestActivities.map((activity) => (
-                    <ActivityItem key={activity._id} activity={activity} />
+                    <Activity key={activity._id} activity={activity} />
                   ))}
                 </div>
               </div>
@@ -84,6 +86,8 @@ export const ActivityHistory = () => {
             </section>
           </main>
         </div>
+      </div>
+        
       );
     }
    
