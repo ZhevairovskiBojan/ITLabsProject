@@ -1,26 +1,25 @@
 .searchbar{
-    width: 280px;
-    height: 36px;
-    border-radius: 10px;
-    background: #D9D9D9;
-    display: flex;
-    align-items: center;
+  width: 280px;
+  height: 36px;
+  border-radius: 10px;
+  background: #D9D9D9;
+  display: flex;
+  align-items:center;
+  position: relative;
+  overflow: hidden;
 }
 .search_icon{
-    width: 20px;
-    height: 20px;
-    margin: 0 8px;
-  }
+  width: 20px;
+  height: 20px;
+  margin: 0 8px;
+}
 .search_input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 5px;
-    background: #D9D9D9;
-    color: #000000;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 3%;
-    text-align: left;
-  }
+  background-color: transparent;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 3%;
+  text-align: left;
+  position: relative;
+  bottom: 4px;
+}

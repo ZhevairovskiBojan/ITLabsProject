@@ -18,7 +18,6 @@ import FetchContextProvider from "./util/FetchContextProvider";
 
 
 
-
 function App() {
   const location = useLocation();
 
@@ -47,10 +46,6 @@ function App() {
                 <Route index element={<Reports />} />
                 <Route path="activityhistory" element={<ActivityHistory />} />
                 <Route path="inventorysummary" element={<RecentSummaryReport />} />
-                
-               
-               
-              
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

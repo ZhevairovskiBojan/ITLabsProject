@@ -6,7 +6,7 @@ return null;
  
 return (
 <div className={styles.modaloverlay}>
- <div className={styles.modalcontent}>
+ <div className={styles.modal_Content}>
   <span className={styles.close} onClick={onClose}>&times;</span>
    <h2>{title}</h2>
       {children}

@@ -1,33 +1,48 @@
 import { useState } from 'react';
+import  styles from "./AddModalCategory.module.css"
 import { Modal } from '../Modals/Modal';
-import { addCategory } from '../../util/api';
+import MultiplyIcon from "../../imgs/Multiply-x.png"
+import AddImage from "../../imgs/Add-Image.png"
 
 
-export const AddCategoryModal = ({ isOpen, onRequestClose, onCategoryAdded }) => {
-  const [name, setName] = useState('');
+export const AddCategoryModal = ({ isOpen, onClose, onSubmit }) => {
+  const [categoryName, setCategoryName] = useState('');
 
-  const handleAddCategory = async () => {
-    try {
-    const newCategory = { name };
-    const addedCategory = await addCategory(newCategory);
-    onCategoryAdded(addedCategory);
-      onRequestClose();
-    } catch (error) {
-      console.error('Error adding category:', error);
-    }
-};
+  if (!isOpen) return null;
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(categoryName);
+  };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
-     <h2>Add Category</h2>
-     <input
-       type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Category Name"
-      />
-     <button onClick={handleAddCategory}>Add</button>
-     <button onClick={onRequestClose}>Close</button>
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <div className={styles.modalContent}>
+        <div className={styles.modalHeader}>
+        <h2 className={styles.modalTitle}>Add Category</h2>
+        <img src={MultiplyIcon} alt="Close" className={styles.close} onClick={onClose} />
+        </div>
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            id="category-name"
+            placeholder='Name*'
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
+            required
+          />
+        <div className={styles.modalLine}></div>
+        <div className={styles.modalUpload}>
+            <img src={AddImage} alt="Upload" />
+            <span>(Add Photo, 2MB Total)</span>
+          </div>
+        <div className={styles.modalLine}></div>
+        <div className={styles.modalActions}>
+            <button type="button" className={styles.modalButtonCancel} onClick={onClose}>Cancel</button>
+            <button type="submit" className={styles.modalButtonSubmit}>Add Category</button>
+          </div>
+        </form>
+      </div>
     </Modal>
   );
 };
