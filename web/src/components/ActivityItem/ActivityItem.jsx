@@ -30,7 +30,7 @@ export const Activity = () => {
   };
   return (
     <div>
-      <h2 className={styles.activityHistoryHeader}>Activity History</h2>
+      <h2 className={styles.activityHistoryHeader}></h2>
       {activities.map((activity, index) => (
         <div key={index} className={styles.activitybox}>
           <p className={styles.activitytext}>{getActivityText(activity)}</p>

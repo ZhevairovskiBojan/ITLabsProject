@@ -8,7 +8,6 @@ export const SearchBar = ({ placeholder, onSearch }) => {
     const handleChange = (e) => {
       const inputValue = e.target.value;
       setQuery(inputValue);
-      // onSearch znaci direktno da se prikazuvaat kako sto userot pisuva
       onSearch(inputValue);
     };
   
