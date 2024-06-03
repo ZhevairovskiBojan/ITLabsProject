@@ -1,6 +1,8 @@
+// src/components/LineChart/LineChart.jsx
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
+
 import { 
   Chart as ChartJS, 
   CategoryScale, 
@@ -35,18 +37,19 @@ function LineChart({ chartData }) {
         },
         title: {
           display: true,
-          text: 'Text',
+          text: 'Date',
         },
       },
       y: {
-        beginAtZero: true, // Започни од нула
+        beginAtZero: true,
         ticks: {
-          stepSize: 10, // Секој чекор да биде 10
+          stepSize: 10,
         },
-        min: 0, // Минимумот на опсегот на оската
-        max: 100, // Максимумот на опсегот на оската
+        min: 0,
+        max: 100,
         title: {
           display: true,
+          text: 'Total Cost',
         },
       },
     },
