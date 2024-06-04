@@ -1,5 +1,3 @@
-
-
 import { InventorySummary } from "../../components/InventorySummary/inventorySummary";
 import { RecentActivity } from "../../components/RecentActivity/RecentActivity";
 import { RecentOrders } from "../../components/RecentOrder/RecentOrders";

@@ -34,9 +34,9 @@ export const Category = () => {
       formData.append('photo', photo);
 
       await addItem(formData);
-      // Handle successful addition (e.g., refresh list, show success message)
-    } catch (error) {
-      // Handle error (e.g., show error message)
+      
+     } catch (error) {
+      
     } finally {
       setModalOpen(false);
     }

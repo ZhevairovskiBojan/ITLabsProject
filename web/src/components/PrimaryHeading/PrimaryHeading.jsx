@@ -9,10 +9,9 @@ export const PrimaryHeading = () => {
   
     useEffect(() => {
       // Fetch data od MongoDb I kalkuliranje na site totals
-      // Za demonstracija, ke upotrebam dummy data
       const fetchData = async () => {
         try {
-          // Primer za fetching data od MongoDB
+         
           // const categoriesData = await fetchCategoriesDataFromMongoDB();
           // const itemsData = await fetchItemsDataFromMongoDB();
           // const ordersData = await fetchOrdersDataFromMongoDB();

@@ -5,8 +5,6 @@ import MultiplyIcon from "../../imgs/Multiply-x.png"
 import AddImage from "../../imgs/Add-Image.png"
 
 
-
-
 export const AddSupplierModal = ({ isOpen, onClose, onSubmit }) => {
   const [supplierName, setSupplierName] = useState('');
   const [supplierPhoto, setSupplierPhoto] = useState(null);

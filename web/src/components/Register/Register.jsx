@@ -13,7 +13,7 @@ function Register() {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target; // Destructuring for clarity
+    const { name, value } = e.target; 
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -21,7 +21,7 @@ function Register() {
   };
 
   const handleSubmit = async () => {
-    const { email, password, name } = formData; // Destructuring for clarity
+    const { email, password, name } = formData; 
     if (!email || !password || !name) {
       alert("Please fill in all fields.");
       return;

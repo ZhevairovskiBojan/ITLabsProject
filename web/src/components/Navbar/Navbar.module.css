@@ -1,6 +1,6 @@
 .logo{
      width: 260px;
-     height: 110px;
+     height: 130px;
     }
     .navbar{
         height: 100%;
@@ -46,12 +46,13 @@
 }
 
   .signout_wrap{
-    width: 260px;
+    width: 380px;
     height: 80px;
     display: flex;
     justify-content: center;
     position: absolute;
     bottom: 0;
+   
     
   }
   .btn_signout{

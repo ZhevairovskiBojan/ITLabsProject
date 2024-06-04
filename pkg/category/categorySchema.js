@@ -16,7 +16,6 @@ const categorySchema = new mongoose.Schema({
         ref: 'users',
     }],
 
-    //  timestamps: true,
 
 });
 

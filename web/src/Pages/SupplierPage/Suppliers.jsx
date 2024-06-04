@@ -13,7 +13,7 @@ export const SupplierPage =() => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleSearch = async (query) => {
-      // izvrsuvame prebaruvanje na databaza,  treba samo da modificirame da bara Suppliers
+   
       try {
         const searchResults = await searchDatabase(query);
         console.log('Search results:', searchResults);

@@ -24,9 +24,9 @@ export const InventoryPage = () => {
             const handleAddCategory = async (categoryName) => {
               const response = await addCategory({ name: categoryName });
               if (response.ok) {
-                // Handle success
+              
               } else {
-                // Handle error
+                
               }
               setIsModalOpen(false);
             };
