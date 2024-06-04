@@ -1,20 +1,9 @@
 const category = require('../../../pkg/category/categorySchema');
 
 exports.getAllCategory = async (req, res) => {
-    try {
-        const categories = await category.find();
-        res.status(200).json({
-            status: 'success',
-            data: {
-                categories,
-            }
-        });
-    } catch (err) {
-        res.status(500).json({
-            status: 'fail',
-            message: 'Failed to fetch categories',
-        });
-    }
+    const categories = await category.find();
+
+  res.send (categories);
 };
 
 exports.getOneCategory = async (req, res) => {

@@ -9,7 +9,7 @@ import Register from "./components/Register/Register";
 import { DashboardPage } from "./Pages/DashboardPage/Dashboard";
 import { InventoryPage } from "./Pages/InventoryPage/Inventory";
 import { Reports } from "./Pages/ReportsPage/Reports";
-import { Category } from "./Pages/CategoryPage/CategoryPage";
+import { CategoryPage } from "./Pages/CategoryPage/CategoryPage";
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { ActivityHistory } from "./Pages/ActivityHistory/ActivityHistory";
 import { RecentSummaryReport } from "./Pages/RecentSummary/RecentSummary";
@@ -40,7 +40,7 @@ function App() {
             <Routes>
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/inventory" element={<InventoryPage />} />
-              <Route path="/category/:id" element={<Category />} />
+              <Route path="/category/:id" element={<CategoryPage />} />
               <Route path="/suppliers" element={<SupplierPage />} />
               <Route path="/reports" element={<Outlet />}>
                 <Route index element={<Reports />} />

@@ -55,7 +55,7 @@
 .activityForm {
     display: flex;
     justify-content: left;
-    align-items: start;
+    
     flex-direction: column;
     font-size: 14px;
     margin-left: 10px;

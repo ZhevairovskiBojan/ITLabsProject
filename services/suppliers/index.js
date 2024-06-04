@@ -15,6 +15,7 @@ secret: process.env.JWT_SECRET,
 })
  );
 
+
 app.get('/api/v1/supplier/suppliers', auth.getAllSuppliers);
 app.get('/api/v1/supplier/oneSupplier/:id', auth.getOneSupplier);
 app.post('/api/v1/supplier/newSupplier', auth.createSupplier);

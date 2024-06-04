@@ -1,0 +1,124 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    
+  }
+  
+  .modalContent {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .modalHeader {
+    background-color: #53A856;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .modalTitle {
+    color: white;
+    width: 100%;
+    text-align: left;
+    font-weight: normal;
+    padding-left: 20px;
+  }
+  
+  .close {
+    width: 24px;
+    height: 24px;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #999999;
+    outline: none;
+    font-weight: 600;
+  }
+  
+  .modalLine {
+    width: 100%;
+    height: 1px;
+    background-color: #999999;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .modalUpload {
+    width: 93%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #999999;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  
+  .modalUpload img {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .modalUpload span {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .modalActions {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    margin: 20px auto;
+  }
+  
+  .modalButton {
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .modalButtonCancel {
+    background-color: #D9D9D9;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  .modalButtonSubmit {
+    background-color: #53A856;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  

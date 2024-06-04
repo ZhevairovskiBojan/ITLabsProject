@@ -7,6 +7,9 @@ import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Togglebtn } from "../../components/ToggleButton/ToggleButton";
 import { searchDatabase, addCategory } from '../../util/api';
 import { AddCategoryModal } from "../../components/AddModal/AddModalCategory";
+import { AddItemModal } from "../../components/AddItemModal/AddItemModal";
+
+
 
 
 export const InventoryPage = () => {
@@ -44,6 +47,8 @@ export const InventoryPage = () => {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           onSubmit={handleAddCategory} />
+          <AddItemModal/>
+         
       
           <Togglebtn />
          </div>

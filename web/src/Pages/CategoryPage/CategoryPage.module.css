@@ -13,4 +13,13 @@
     position: relative;
     top: 10px;
     padding-bottom: 30px;
+    
+}
+
+.bottomWrap{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin-top: 350px;
+  
 }

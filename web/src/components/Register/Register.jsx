@@ -45,12 +45,15 @@ function Register() {
         headers: { 'Content-Type': 'application/json' },
       });
 
+      const resData = await response.json();
+
       if (response.ok) {
-        alert('User is created');
-        navigate("/login");
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("token", resData.token);
+        localStorage.setItem("username", formData.name);
+        navigate("/dashboard");
       } else {
-        const errorData = await response.json();
-        alert(`Registration failed: ${errorData.message}`);
+        alert(`Registration failed: ${resData.message}`);
       }
     } catch (err) {
       console.error("Error during registration:", err);
