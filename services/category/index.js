@@ -20,7 +20,7 @@ secret: process.env.JWT_SECRET,
 
 app.get('/api/v1/category/categories', auth.getAllCategory);
 app.get('/api/v1/category/oneCategory/:id', auth.getOneCategory);
-app.post('/api/v1/category/newCategory', upload.single('icon'), auth.createCategory);
+app.post('/api/v1/category/newCategory/:id', auth.createCategory);
 app.patch('/api/v1/category/updateCategory/:id', auth.updateCategory);
 app.delete('/api/v1/category/categoryDelete/:id', auth.deleteCategory);
 

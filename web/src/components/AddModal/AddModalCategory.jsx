@@ -7,12 +7,17 @@ import AddImage from "../../imgs/Add-Image.png"
 
 export const AddCategoryModal = ({ isOpen, onClose, onSubmit }) => {
   const [categoryName, setCategoryName] = useState('');
+  const [categoryPhoto, setCategoryPhoto] = useState(null);
 
   if (!isOpen) return null;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    onSubmit(categoryName);
+    onSubmit(categoryName, categoryPhoto);
+  };
+
+  const handlePhotoChange = (e) => {
+    setCategoryPhoto(e.target.files[0]);
   };
 
   return (
@@ -33,6 +38,7 @@ export const AddCategoryModal = ({ isOpen, onClose, onSubmit }) => {
           />
         <div className={styles.modalLine}></div>
         <div className={styles.modalUpload}>
+        <input type="file" id="category-photo" onChange={handlePhotoChange} style={{ display: 'none' }} />
             <img src={AddImage} alt="Upload" />
             <span>(Add Photo, 2MB Total)</span>
           </div>

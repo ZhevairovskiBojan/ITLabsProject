@@ -32,13 +32,18 @@ export const ActivityHistory = () => {
     const latestActivities = filtered.slice(0,11);
   
     return (
-      <div className={styles.page_wrapper}>
-      <Activity />
-      <div className={styles.ActivityHistory}>
+     
             
-          <main>
+          
+
+
            
             <section className={styles.activitiesContainer}>
+            <div className={styles.page_wrapper}>
+      <Activity />
+      <div className={styles.ActivityHistory}>
+      </div>
+      </div>
               <div className={styles.leftPart}>
               <img src={Descending_Sorting} alt="sort-icon" className={styles.sortIcon} />
                 <div className={styles.activities}>
@@ -84,10 +89,8 @@ export const ActivityHistory = () => {
                 </form>
               </div>
             </section>
-          </main>
-        </div>
-      </div>
-        
+          
+    
       );
     }
    

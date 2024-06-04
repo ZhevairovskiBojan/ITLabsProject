@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DeleteBtn from "../../../imgs/deletebtn.png";
 import styles from "./CategoryList.module.css";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
     const { featuredImage, productCategory, stock, basePrice, display } = category;
@@ -51,7 +52,9 @@ const CategoryCard = ({ category }) => {
     return (
       <div className={styles.wrapper} >
         {Array.isArray(categories) && categories.map(category => (
+          <Link key={category.id} to={`/category/${category.id}`}>
           <CategoryCard key={category.id} category={category} />
+          </Link>
         ))}
       </div>
     );

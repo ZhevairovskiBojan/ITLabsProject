@@ -1,18 +1,16 @@
 import styles from "./CategoryPage.module.css"
 import { useState } from "react";
-import { SearchBar } from "../../components/SearchBar/SearchBar"
-import { searchDatabase } from '../../util/api';
+import { AddItemModal } from "../../components/AddItemModal/AddItemModal";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
+import { searchDatabase, addItem } from '../../util/api';
 import { Button } from "../../components/AddButton/AddButton";
-import { Modal } from "../../components/Modals/Modal";
 import { Togglebtn } from "../../components/ToggleButton/ToggleButton";
 import { ModalProvider } from "../../components/Modals/ModalContext";
 
 export const Category = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ItemName, setItemName] = useState('');
+  const [isModalOpen, setModalOpen] = useState(false);
 
        const handleSearch = async (query) => {
-        // Perform database search
         try {
           const searchResults = await searchDatabase(query);
           console.log('Search results:', searchResults);
@@ -21,44 +19,44 @@ export const Category = () => {
         }
       };
 
-  const handleAddItem = async () => {
-    const response = await fetch('/api/add-item', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: ItemName }),
-    });
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
 
-    if (response.ok) {
-      // Handle success
-    } else {
-      // Handle error
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleAddItem = async (name, photo) => {
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('photo', photo);
+
+      await addItem(formData);
+      // Handle successful addition (e.g., refresh list, show success message)
+    } catch (error) {
+      // Handle error (e.g., show error message)
+    } finally {
+      setModalOpen(false);
     }
-
-    setIsModalOpen(false);
   };
 
   return (
     < ModalProvider>
-    <div className={styles.page_wrapper}>
+        <div className={styles.page_wrapper}>
         <div className={styles.subheader} >
           <SearchBar placeholder="Search Items" onSearch={handleSearch} />
-          <Button label="ADD ITEM" onClick={() => setIsModalOpen(true)} />
+          <Button label="ADD ITEM" onClick={handleOpenModal}/>
           </div>
         <div>
-            <Modal
-              isOpen={isModalOpen}
-              title="Add Item"
-              onClose={() => setIsModalOpen(false)}>
-              <input
-                type="text"
-                value={ItemName}
-                onChange={(e) => setItemName(e.target.value)}
-              />
-              <button onClick={handleAddItem}>Submit</button>
-          </Modal>
+          <AddItemModal isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleAddItem}/>
           <Togglebtn />
         </div>
     </div>
     </ModalProvider>
+
   );
 };
