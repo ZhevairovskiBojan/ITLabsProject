@@ -1,36 +1,25 @@
-.activityHistory {
-    width: 100%;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
 
 
 .activitiesContainer {
-    width: 90%;
-    margin-top: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    
-    
-}
+    align-items: center;
+    width: 90%;
+    height: 65vh;
+    position: relative;
+  }
 
-.leftPart {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    
-}
+  
+
 
 .sortIcon {
     width: 20px;
-    height: 20px;
+    height: 20%;
 }
 
 .activities {
-  
-   
-    padding-top: 10px;
+  padding-top: 10px;
+  background-color: #3E4153;
 }
 
 .activityFilter {
@@ -55,7 +44,7 @@
 .activityForm {
     display: flex;
     justify-content: left;
-    
+    align-items: center;
     flex-direction: column;
     font-size: 14px;
     margin-left: 10px;
@@ -63,10 +52,19 @@
     gap: 15px;
     padding-left: 60px;
     
+    
 }
 
 .activityForm label {
-    font-size: 13px;
+    font-size: 12px;
+    display:flex;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 80%;
+    height: 20px;
+    
+  
 }
 
 .activityForm input[type="radio"] {

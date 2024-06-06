@@ -5,7 +5,7 @@ import { ModalProvider } from "../../components/Modals/ModalContext";
 import { PrimaryHeading } from "../../components/PrimaryHeading/PrimaryHeading";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Togglebtn } from "../../components/ToggleButton/ToggleButton";
-import { searchDatabase, addCategory } from '../../util/api';
+import { searchDatabase, addCategory } from '../../uttil/api';
 import { AddCategoryModal } from "../../components/AddModal/AddModalCategory";
 import { AddItemModal } from "../../components/AddItemModal/AddItemModal";
 

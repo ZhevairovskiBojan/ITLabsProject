@@ -3,7 +3,7 @@ import { Button } from "../../components/AddButton/AddButton";
 import { useState } from "react";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Suppliers } from "../../components/SupplyCard/Supplycard";
-import { searchDatabase, addSupplier } from "../../util/api";
+import { searchDatabase, addSupplier } from "../../uttil/api";
 import { AddSupplierModal } from "../../components/AddSupplierModal/AddSupplierModal";
 
 import styles from "./Suppliers.module.css"

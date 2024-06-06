@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DeleteBtn from "../../../imgs/deletebtn.png";
 import styles from "./CategoryGrid.module.css";
 
+
 const CategoryCard = ({ category }) => {
   const { featuredImage, productCategory, stock, basePrice, display } = category;
 
@@ -30,14 +31,21 @@ export const CategoryGrid = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('https://dummyapi.online/api/products')
-      .then(response => response.json())
-      .then(data => {
-        const eightData = Array.isArray(data) ? data.slice(0, 8) : [];
-        setCategories(eightData);
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+   getCategories()
+     }, []);
+
+     const getCategories = () =>
+      {
+        fetch('https://dummyapi.online/api/products')
+        .then(response => response.json())
+        .then(data => {
+          console.log (data)
+          const eightData = Array.isArray(data) ? data.slice(0, 8) : [];
+          setCategories(eightData);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+  
+      } 
 
   return (
     <div className={styles.wrapper}>

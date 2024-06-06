@@ -12,7 +12,6 @@ export const AddItemModal = ({ isOpen, onClose, onSubmit }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // Load categories from localStorage when the modal opens
       const savedCategories = JSON.parse(localStorage.getItem('categories')) || [];
       setCategories(savedCategories);
     }

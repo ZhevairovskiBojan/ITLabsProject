@@ -10,7 +10,7 @@ const FetchContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:9050/inventory", {
+        const response = await fetch("http://127.0.0.1:9030/inventory", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

@@ -2,18 +2,18 @@ const express = require('express');
 const auth = require ('../../services/suppliers/authHandler');
 const db = require ('../../pkg/db/index');
 const cors = require('cors');
-const jwt = require ('express-jwt');
+// const jwt = require ('express-jwt');
 
 const app = express();
 
 db.init();
 app.use(express.json());
 app.use(cors())
-app.use(jwt.expressjwt({
-algorithms: ['HS256'],
-secret: process.env.JWT_SECRET,
-})
- );
+// app.use(jwt.expressjwt({
+// algorithms: ['HS256'],
+// secret: process.env.JWT_SECRET,
+// })
+//  );
 
 
 app.get('/api/v1/supplier/suppliers', auth.getAllSuppliers);

@@ -1,9 +1,9 @@
 // src/Pages/RecentSummary/RecentSummary.jsx
 import styles from "./RecentSummary.module.css";
 import { useContext, useState, useEffect } from "react";
-import { useFetchData } from "../../util/FetchData";
+import { useFetchData } from "../../uttil/FetchData";
 import VisualizationComponent from "../../components/LineChart/Visualization";
-import { Context } from "../../util/FetchContextProvider";
+import { Context } from "../../uttil/FetchContextProvider";
 import Calendar from "../../imgs/Calendar.png";
 
 export const RecentSummaryReport = () => {

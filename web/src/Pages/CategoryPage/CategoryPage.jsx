@@ -2,7 +2,7 @@ import styles from "./CategoryPage.module.css";
 import { useState } from "react";
 import { AddItemModal } from "../../components/AddItemModal/AddItemModal";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
-import { searchDatabase, addItem, editCategory } from '../../util/api';
+import { searchDatabase, addItem, editCategory } from '../../uttil/api';
 import { Button } from "../../components/AddButton/AddButton";
 import { Togglebtn } from "../../components/ToggleButton/ToggleButton";
 import { ModalProvider } from "../../components/Modals/ModalContext";

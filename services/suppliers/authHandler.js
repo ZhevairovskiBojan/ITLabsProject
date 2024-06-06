@@ -4,6 +4,7 @@ const supplier = require('../../pkg/suppliers/suppliersSchema');
 exports.getAllSuppliers = async (req, res) => {
     try {
         const suppliers = await supplier.find();
+        console.log (suppliers)
         res.status(200).json({
             status: 'success',
             data: {
